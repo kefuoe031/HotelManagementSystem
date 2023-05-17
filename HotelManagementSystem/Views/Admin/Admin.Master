@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Admin.master.cs" Inherits="HotelManagementSystem.Views.Admin.Admin" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="../../Assets/Libraries/Bootstrap/css/bootstrap.min.css"/>
+</head>
+<body>       <%--Navbar starts--%>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Hotel Management System</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <li class="nav-item">
+          <a class="nav-link" href="Rooms.aspx">Rooms</a>
+        </li>    
+          <li class="nav-item">
+          <a class="nav-link" href="RoomType.aspx">Room Type</a>
+        </li>   
+          <li class="nav-item">
+          <a class="nav-link" href="Users.aspx">Guests</a>  <%--Users--%>
+        </li>   
+          <li class="nav-item">
+          <a class="nav-link" href="../Login.aspx">Logout</a>
+        </li>           
+      </ul>
+    </div>
+  </div>
+</nav>            
+          <%--Navbar ends--%>
+
+    <form id="form1" runat="server">
+        <div>
+            <asp:ContentPlaceHolder ID="Mybody" runat="server">
+
+
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

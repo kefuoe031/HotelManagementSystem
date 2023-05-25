@@ -4,7 +4,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Mybody" runat="server">
   
-    <div class="container-fluid">
+    <div class="container-fluid" style="background-color: burlywood; width:100%">
     
         <div class="row" style="display:flex; justify-content:center" >
             
@@ -12,13 +12,13 @@
             <div class="col-4" style="padding:3%"><h1 class="text-body text-center">Make a Booking</h1>
             </div>
         
-            <div class="row"style="width:90%; background-color:aliceblue; display:flex; justify-content:center">
+            <div class="row"style="width:90%; background-color:rgba(255,255,255,0.5); display:flex; justify-content:center">
                
                 <div class="col-md-3" style="width:40%">
 
                       <!--Calendar (for dates selection) to go with this-->
-                <div class="mb-3">
-                    <label for="GTitleTb" class="form-label">Check-In</label>
+                <div class="mb-3" style="padding:20px">
+                    <label for="GTitleTb" class="form-label" style="float:left; padding-right:10px">Check-In</label>
                     <asp:Calendar ID="checkInCalendar" runat="server" BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Century Gothic" Font-Size="8pt" ForeColor="#666666" Height="144px" ShowGridLines="True" Width="220px">
                         <DayHeaderStyle BackColor="#EFF7FE" BorderStyle="Dashed" Font-Bold="True" Font-Names="Century Gothic" ForeColor="#666666" Height="1px" />
                         <DayStyle BackColor="White" ForeColor="#666666" />
@@ -62,8 +62,8 @@
 
                  <div class="col-md-3" style="width:40%">
                        <!--Calendar (for dates selection) to go with this-->
-                <div class="mb-3">
-                    <label for="GTitleTb" class="form-label">Check-Out</label>
+                <div class="mb-3" style="padding:20px">
+                    <label for="GTitleTb" class="form-label" style="float:left; padding-right:10px">Check-Out</label>
                     <asp:Calendar ID="checkOutCalendar" runat="server" BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Century Gothic" Font-Size="8pt" ForeColor="#666666" Height="144px" ShowGridLines="True" Width="220px">
                         <DayHeaderStyle BackColor="#EFF7FE" BorderStyle="Dashed" Font-Bold="True" Font-Names="Century Gothic" ForeColor="#666666" Height="1px" />
                         <DayStyle BackColor="White" ForeColor="#666666" />
@@ -101,6 +101,7 @@
                     </div>
 
                 <div> <!--Room type selection goes here-->
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
                     <h4>Select your room:</h4>
                     <asp:RadioButton ID="RadioButton1" runat="server" />
                 </div>

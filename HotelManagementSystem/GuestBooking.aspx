@@ -1,10 +1,15 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Booking.aspx
-    " Inherits="HotelManagementSystem.Views.Admin.Users" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-</asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="Mybody" runat="server">
-  
-    <div class="container-fluid" style="background-color: burlywood; width:100%">
+﻿<%@ Page Language="C#" MasterPageFile="~/Views/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="GuestBooking.aspx.cs" Inherits="HotelManagementSystem.GuestBooking" %>
+<asp:Content ID="Content3" ContentPlaceHolderID="Mybody" runat="server">
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Booking</title>
+</head>
+<body>
+    <form id="form1">
+        <div>
+             <div class="container-fluid" style="background-color: burlywood; width:100%">
     
         <div class="row" style="display:flex; justify-content:center" >
             
@@ -114,6 +119,8 @@
         </div>
         
     </div>
-  
-
-</asp:Content>
+        </div>
+    </form>
+</body>
+</html>
+    </asp:Content>

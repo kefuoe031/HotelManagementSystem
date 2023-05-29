@@ -24,7 +24,8 @@
                       <!--Calendar (for dates selection) to go with this-->
                 <div class="mb-3" style="padding:20px">
                     <label for="GTitleTb" class="form-label" style="float:left; padding-right:10px">Check-In</label>
-                    <asp:Calendar ID="checkInCalendar" runat="server" BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Century Gothic" Font-Size="8pt" ForeColor="#666666" Height="144px" ShowGridLines="True" Width="220px">
+
+                    <asp:Calendar ID="checkInCalendar" runat="server" BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Century Gothic" Font-Size="8pt" ForeColor="#666666" Height="144px" ShowGridLines="True" Width="220px" OnDayRender="checkInCalendar_DayRender">
                         <DayHeaderStyle BackColor="#EFF7FE" BorderStyle="Dashed" Font-Bold="True" Font-Names="Century Gothic" ForeColor="#666666" Height="1px" />
                         <DayStyle BackColor="White" ForeColor="#666666" />
                         <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />

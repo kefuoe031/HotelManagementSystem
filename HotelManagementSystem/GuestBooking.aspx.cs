@@ -13,5 +13,14 @@ namespace HotelManagementSystem
         {
 
         }
+
+        protected void checkInCalendar_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if(e.Day.Date < DateTime.Now.Date)
+            {
+                e.Day.IsSelectable = false;
+                e.Cell.ForeColor = System.Drawing.Color.Red;
+            }
+        }
     }
 }

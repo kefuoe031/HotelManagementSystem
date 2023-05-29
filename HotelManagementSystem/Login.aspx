@@ -25,22 +25,23 @@
             <h1 class="text-body text-center">The Holiday Inn</h1>     <%-- Hotel Name--%> 
 
         <%--// Bootstrap Email Sign in/ Log in form begins--%>
-            <form>      
+            <form runat="server">      
                 <div class="mb-3">
-                    <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" class="form-control" id="EmailTb" />
+                    <asp:Label ID="emailAddress" runat="server" Text="Email Address"></asp:Label>
+                    <asp:TextBox ID="emailTb" runat="server" class="form-control" TextMode="Email"></asp:TextBox>
+                    
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="PasswordTb">
+                    <input type="password" class="form-control" id="PasswordTb"/>
                 </div>
                 <div class="mb-3">
-                    <input type="radio" class="form-check-input" id="AdminCb"><label class="text-body">Admin</label>
-                    <input type="radio" class="form-check-input" id="UserCb"<label class="text-body">User</label>
+                    <input type="radio" class="form-check-input" id="AdminCb"/><label class="text-body">Admin</label>
+                    <input type="radio" class="form-check-input" id="UserCb" /><label class="text-body">User</label>
                 </div>
                        <div class="d-grid">
-                       <button type="submit" class="btn btn-danger btn-block">Login</button>
-                            
+                       <asp:Button ID="Login" runat="server" class="btn btn-danger btn-block" Text="Login" OnClick="Login_Click" />
+                      
                        </div>                
                 <br />
                 </form>
@@ -52,9 +53,10 @@
        
     </div>
 
-    <form id="form1" runat="server">
+    
         <div>
         </div>
-    </form>
+    
 </body>
 </html>
+    

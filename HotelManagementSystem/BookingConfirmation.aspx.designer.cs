@@ -7,56 +7,56 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HotelManagementSystem.Views
+namespace HotelManagementSystem
 {
 
 
-    public partial class WebForm1
+    public partial class BookingConfirmation
     {
 
         /// <summary>
-        /// emailAddress control.
+        /// checkInDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label emailAddress;
+        protected global::System.Web.UI.WebControls.TextBox checkInDate;
 
         /// <summary>
-        /// emailTb control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox emailTb;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
-        /// AdminCb control.
+        /// genderDdl control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton AdminCb;
+        protected global::System.Web.UI.WebControls.DropDownList genderDdl;
 
         /// <summary>
-        /// UserCb control.
+        /// childrenDDL control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton UserCb;
+        protected global::System.Web.UI.WebControls.DropDownList childrenDDL;
 
         /// <summary>
-        /// Login control.
+        /// confirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button Login;
+        protected global::System.Web.UI.WebControls.Button confirm;
     }
 }

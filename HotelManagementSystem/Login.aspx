@@ -36,8 +36,8 @@
                     <input type="password" class="form-control" id="PasswordTb"/>
                 </div>
                 <div class="mb-3">
-                    <input type="radio" class="form-check-input" id="AdminCb"/><label class="text-body">Admin</label>
-                    <input type="radio" class="form-check-input" id="UserCb" /><label class="text-body">User</label>
+                    <asp:RadioButton ID="AdminCb" runat="server" class="form-check-input text-body" Text="Admin" OnCheckedChanged="AdminCb_CheckedChanged" />
+                    <asp:RadioButton ID="UserCb" runat="server" class="form-check-input text-body" Text="Guest" OnCheckedChanged="UserCb_CheckedChanged" />
                 </div>
                        <div class="d-grid">
                        <asp:Button ID="Login" runat="server" class="btn btn-danger btn-block" Text="Login" OnClick="Login_Click" />

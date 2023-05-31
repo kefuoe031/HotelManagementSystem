@@ -1,8 +1,8 @@
 ﻿<%@ Page Language="C#" MasterPageFile="~/Views/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="GuestBooking.aspx.cs" Inherits="HotelManagementSystem.GuestBooking" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="Mybody" runat="server">
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <title>Booking</title>
 </head>
@@ -54,14 +54,14 @@
                 </div>
 
                 <div class="mb-3">
-                    <label for="GenCb" class="form-label">Gender</label>
+                    <label for="GenCb" class="form-label">Valid ID No.</label>
                     <asp:DropDownList ID="genderDdl" runat="server" class="form-control">
                         
                     </asp:DropDownList>
                 </div>
 
                 <div class="mb-3">
-                    <label for="PassportNoTb" class="form-label">Valid ID No.</label>
+                    <label for="PassportNoTb" class="form-label">Allergies</label>
                     <input type="text" class="form-control" id="idNoTb" />
                 </div>
                     </div>
@@ -70,7 +70,7 @@
                        <!--Calendar (for dates selection) to go with this-->
                 <div class="mb-3" style="padding:20px">
                     <label for="GTitleTb" class="form-label" style="float:left; padding-right:10px">Check-Out</label>
-                    <asp:Calendar ID="checkOutCalendar" runat="server" BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Century Gothic" Font-Size="8pt" ForeColor="#666666" Height="144px" ShowGridLines="True" Width="220px">
+                    <asp:Calendar ID="checkOutCalendar" runat="server" BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Century Gothic" Font-Size="8pt" ForeColor="#666666" Height="144px" ShowGridLines="True" Width="220px" OnDayRender="checkOutCalendar_DayRender">
                         <DayHeaderStyle BackColor="#EFF7FE" BorderStyle="Dashed" Font-Bold="True" Font-Names="Century Gothic" ForeColor="#666666" Height="1px" />
                         <DayStyle BackColor="White" ForeColor="#666666" />
                         <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
@@ -105,14 +105,36 @@
                 </div>
                  
                     </div>
-
-                <div> <!--Room type selection goes here-->
-                    <asp:SqlDataSource ID="SqlDataSource1" runat="server"></asp:SqlDataSource>
-                    <h4>Select your room:</h4>
-                    <asp:RadioButton ID="RadioButton1" runat="server" />
+                <br />
+                <div class="col-md-3" style="width:80%">
+                        <h4>Select your room:</h4>
+                    </div>
+                <div id="select" style="justify-content:center; display:flex; width:100%; padding:3%"> <!--Room type selection goes here-->
+                    <asp:GridView ID="RoomGridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="RoomType" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="100%">
+                        <AlternatingRowStyle BackColor="White" />
+                        <Columns>
+                            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+                            <asp:BoundField DataField="RoomType" HeaderText="Room Type" ReadOnly="True" SortExpression="RoomType" />
+                            <asp:BoundField DataField="RoomPrice" HeaderText="Special Price" SortExpression="RoomPrice" />
+                            <asp:BoundField DataField="DefaultRoomPrice" HeaderText="Default Price" SortExpression="DefaultRoomPrice" />
+                            <asp:BoundField DataField="RoomDesc" HeaderText="Room Description" SortExpression="RoomDesc" />
+                        </Columns>
+                        <EditRowStyle BackColor="#7C6F57" />
+                        <FooterStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                        <HeaderStyle BackColor="#1C5E55" Font-Bold="True" ForeColor="White" />
+                        <PagerStyle BackColor="#666666" ForeColor="White" HorizontalAlign="Center" />
+                        <RowStyle BackColor="#E3EAEB" />
+                        <SelectedRowStyle BackColor="BurlyWood" Font-Bold="True" ForeColor="#333333" />
+                        <SortedAscendingCellStyle BackColor="#F8FAFA" />
+                        <SortedAscendingHeaderStyle BackColor="#246B61" />
+                        <SortedDescendingCellStyle BackColor="#D4DFE1" />
+                        <SortedDescendingHeaderStyle BackColor="#15524A" />
+                    </asp:GridView>
+                    <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Hons10ConnectionString %>" SelectCommand="SELECT * FROM [RoomTypeTab]"></asp:SqlDataSource>
                 </div>
+                
                      <div class="d-grid">
-                       <button type="submit" class="btn btn-success btn-block">Reserve Booking</button>
+                       <asp:Button ID="reserve" runat="server" class="btn btn-success btn-block" Text="Reserve Booking" OnClick="reserve_Click" />
                 </div>
             <div class="col-4" style="padding:3%"></div>
                

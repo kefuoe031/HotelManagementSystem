@@ -22,5 +22,14 @@ namespace HotelManagementSystem
                 e.Cell.ForeColor = System.Drawing.Color.Red;
             }
         }
+
+        protected void checkOutCalendar_DayRender(object sender, DayRenderEventArgs e)
+        {
+            if (e.Day.Date < DateTime.Now.Date)
+            {
+                e.Day.IsSelectable = false;
+                e.Cell.ForeColor = System.Drawing.Color.Red;
+            }
+        }
     }
 }

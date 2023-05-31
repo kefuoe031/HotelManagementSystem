@@ -134,7 +134,7 @@
                 </div>
                 
                      <div class="d-grid">
-                       <button type="submit" class="btn btn-success btn-block">Reserve Booking</button>
+                       <asp:Button ID="reserve" runat="server" class="btn btn-success btn-block" Text="Reserve Booking" OnClick="reserve_Click" />
                 </div>
             <div class="col-4" style="padding:3%"></div>
                

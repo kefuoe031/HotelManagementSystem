@@ -11,26 +11,26 @@ namespace HotelManagementSystem
 {
 
 
-    public partial class GuestBooking
+    public partial class BookingConfirmation
     {
 
         /// <summary>
-        /// checkInCalendar control.
+        /// checkInDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar checkInCalendar;
+        protected global::System.Web.UI.WebControls.TextBox checkInDate;
 
         /// <summary>
-        /// adultsDDL control.
+        /// TextBox1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList adultsDDL;
+        protected global::System.Web.UI.WebControls.TextBox TextBox1;
 
         /// <summary>
         /// genderDdl control.
@@ -42,15 +42,6 @@ namespace HotelManagementSystem
         protected global::System.Web.UI.WebControls.DropDownList genderDdl;
 
         /// <summary>
-        /// checkOutCalendar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Calendar checkOutCalendar;
-
-        /// <summary>
         /// childrenDDL control.
         /// </summary>
         /// <remarks>
@@ -60,30 +51,12 @@ namespace HotelManagementSystem
         protected global::System.Web.UI.WebControls.DropDownList childrenDDL;
 
         /// <summary>
-        /// RoomGridView1 control.
+        /// confirm control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView RoomGridView1;
-
-        /// <summary>
-        /// SqlDataSource1 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource SqlDataSource1;
-
-        /// <summary>
-        /// reserve control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button reserve;
+        protected global::System.Web.UI.WebControls.Button confirm;
     }
 }

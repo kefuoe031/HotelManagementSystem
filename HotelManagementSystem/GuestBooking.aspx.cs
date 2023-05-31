@@ -31,5 +31,12 @@ namespace HotelManagementSystem
                 e.Cell.ForeColor = System.Drawing.Color.Red;
             }
         }
+
+        protected void reserve_Click(object sender, EventArgs e)
+        {
+            //Validate all fields
+            //redirect to Bill 
+            Response.Redirect("BookingConfirmation.aspx");
+        }
     }
 }

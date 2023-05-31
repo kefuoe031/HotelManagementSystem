@@ -33,6 +33,24 @@ namespace HotelManagementSystem.Views
         protected global::System.Web.UI.WebControls.TextBox emailTb;
 
         /// <summary>
+        /// AdminCb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton AdminCb;
+
+        /// <summary>
+        /// UserCb control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RadioButton UserCb;
+
+        /// <summary>
         /// Login control.
         /// </summary>
         /// <remarks>

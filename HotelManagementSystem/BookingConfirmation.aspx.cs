@@ -16,7 +16,12 @@ namespace HotelManagementSystem
 
         protected void confirm_Click(object sender, EventArgs e)
         {
+            //Go to Bill display > reporting functionality
+        }
 
+        protected void makeChanges_Click(object sender, EventArgs e)
+        {
+            //go back to Guest booking Page
         }
     }
 }

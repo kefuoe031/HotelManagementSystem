@@ -2,7 +2,7 @@
 <asp:Content ID="Content4" ContentPlaceHolderID="Mybody" runat="server">
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<html>
 <head>
     <title>Confirmation</title>
 </head>
@@ -14,68 +14,73 @@
         <div class="row" style="display:flex; justify-content:center" >
             
     
-            <div class="col-4" style="padding:3%"><h1 class="text-body text-center">Make a Booking</h1>
+            <div class="col-4" style="padding:3%; width:auto">
+                <h1 class="text-body text-center">Booking Confirmation</h1>
+                <br />
+                <p class="text-body text-center">Please confirm your booking details below.</p>
             </div>
         
             <div class="row"style="width:90%; background-color:rgba(255,255,255,0.5); display:flex; justify-content:center">
                
-                <div class="col-md-3" style="width:40%">
+                <div class="col-md-3" style="width:40%; align-items:start; padding-top:20px">
 
                       <!--Calendar (for dates selection) to go with this-->
-                <div class="mb-3" style="padding:20px">
-                    <label for="GTitleTb" class="form-label" style="float:left; padding-right:10px">Check-In</label> 
-                    <asp:TextBox ID="checkInDate" runat="server"></asp:TextBox>
+                <div class="mb-3">
+                    <label for="GTitleTb" class="form-label" >Check-In Date: </label> 
+                    <asp:TextBox ID="checkInDate" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
    
                 <div class="mb-3">
                     <label for="GFirstNameTb" class="form-label">Number of Adults: </label>
-                    <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="numAdults" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>         
 
                 <div class="mb-3">
-                    <label for="GLastNameTb" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="firstNameTb" />
+                    <label for="GLastNameTb" class="form-label">First Name: </label>
+                    <asp:TextBox ID="fname" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
 
                 <div class="mb-3">
-                    <label for="GenCb" class="form-label">Valid ID No.</label>
-                    <asp:DropDownList ID="genderDdl" runat="server" class="form-control">
-                        
-                    </asp:DropDownList>
+                    <label for="GenCb" class="form-label">Valid ID/Passport No.</label>
+                    <asp:TextBox ID="idpass" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
 
                 <div class="mb-3">
                     <label for="PassportNoTb" class="form-label">Allergies</label>
-                    <input type="text" class="form-control" id="idNoTb" />
+                    <asp:TextBox ID="allerg" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
+                </div>
+
+                     <div class="mb-3">
+                    <label for="roomType" class="form-label">Room Type: </label>
+                    <asp:TextBox ID="roomType" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
                     </div>
 
-                 <div class="col-md-3" style="width:40%">
-                       <!--Calendar (for dates selection) to go with this-->
-                <div class="mb-3" style="padding:20px">
-                    <label for="GTitleTb" class="form-label" style="float:left; padding-right:10px">Check-Out</label>
+                 <div class="col-md-3" style="width:40%; align-items:start; padding-top:20px">
+                       
+                <div class="mb-3">
+                    <label for="GTitleTb" class="form-label">Check-Out Date: </label>
+                    <asp:TextBox ID="checkOut" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
                      <div class="mb-3">
-                    <label for="GFirstNameTb" class="form-label">Number of Children</label>
-                    <asp:DropDownList ID="childrenDDL" runat="server">
-                        <asp:ListItem>1</asp:ListItem>
-                        <asp:ListItem>2</asp:ListItem>
-                        <asp:ListItem>3</asp:ListItem>
-                        <asp:ListItem>4</asp:ListItem>
-                        <asp:ListItem>5</asp:ListItem>
-                         </asp:DropDownList>
+                    <label for="GFirstNameTb" class="form-label">Number of Children: </label>
+                    <asp:TextBox ID="numChildren" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
                       <div class="mb-3">
-                    <label for="GLastNameTb" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastNameTb" />
+                    <label for="GLastNameTb" class="form-label">Last Name: </label>
+                    <asp:TextBox ID="lname" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
                      <div class="mb-3">
-                    <label for="PhoneTb" class="form-label">Phone No.</label>
-                    <input type="text" class="form-control" id="PhoneTb" />
+                    <label for="PhoneTb" class="form-label">Phone No.: </label>
+                    <asp:TextBox ID="phone" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
                          <div class="mb-3">
-                    <label for="PassportNoTb" class="form-label">Special Requirements</label>
-                    <input type="text" class="form-control" id="specReqTb" />
+                    <label for="PassportNoTb" class="form-label">Special Requirements: </label>
+                    <asp:TextBox ID="specReq" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
+                </div>
+                      <div class="mb-3">
+                    <label for="roomPrice" class="form-label">Room Price: </label>
+                    <asp:TextBox ID="roomPrice" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
                  
                     </div>
@@ -83,6 +88,8 @@
                 
                      <div class="d-grid">
                        <asp:Button ID="confirm" runat="server" class="btn btn-success btn-block" Text="Confirm Booking" OnClick="confirm_Click" />
+                         <br />
+                       <asp:Button ID="makeChanges" runat="server" class="btn btn-success btn-block" Text="Edit Booking" OnClick="makeChanges_Click" BackColor="#666666" />
                 </div>
             <div class="col-4" style="padding:3%"></div>
                

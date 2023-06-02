@@ -69,6 +69,7 @@
     <Content Include="Assets\Images\Hotel_pool.jpg" />
     <Content Include="Assets\Images\Hotel_reception.jpg" />
     <Content Include="Assets\Images\Hotel_room1.jpg" />
+    <Content Include="Assets\Images\Pencil.png" />
     <Content Include="Assets\Libraries\Bootstrap\css\bootstrap-grid.css" />
     <Content Include="Assets\Libraries\Bootstrap\css\bootstrap-grid.min.css" />
     <Content Include="Assets\Libraries\Bootstrap\css\bootstrap-grid.rtl.css" />

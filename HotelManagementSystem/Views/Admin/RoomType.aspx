@@ -52,7 +52,10 @@
             </div>
         <br />
             <div class="col-md-9">
-                <asp:GridView ID="RoomTypeGV" runat="server" class="table" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+                <asp:GridView ID="RoomTypeGV" runat="server" class="table" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" OnSelectedIndexChanged="RoomTypeGV_SelectedIndexChanged">
+                    <Columns>
+                        <asp:CommandField ShowSelectButton="True" UpdateImageUrl="~/Assets/Images/Pencil.png" />
+                    </Columns>
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />

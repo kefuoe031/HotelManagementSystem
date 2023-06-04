@@ -62,14 +62,14 @@ namespace HotelManagementSystem.Views.Admin
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
             try
-            {
+            {          
                 string RoomType = RTypeTb.Value;
                 string RoomPrice = RPriceTb.Value;
                 string DefRoomPrice = DefRPriceTb.Value;
                 string Description = RDescriptionTb.Value;
 
-                string Query = "insert into RoomTypeTab values('{0}','{1}','{2}','{4}')";
-                Query = string.Format(Query, RoomType, RoomPrice, Description);
+                string Query = "insert into RoomTypeTab values('{0}','{1}','{2}','{3}')";
+                Query = string.Format(Query, RoomType, RoomPrice, DefRoomPrice, Description);
                 Con.setData(Query);
                 ShowRoomType();
                 ErrMsg.InnerText = "Room Type Added!";
@@ -90,7 +90,27 @@ namespace HotelManagementSystem.Views.Admin
             RDescriptionTb.Value = RoomTypeGV.SelectedRow.Cells[4].Text;
         }
 
-        
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string RoomType = RTypeTb.Value;
+                string RoomPrice = RPriceTb.Value;
+                string DefRoomPrice = DefRPriceTb.Value;
+                string Description = RDescriptionTb.Value;
+
+                string Query = "update RoomTypeTab set RoomType='{0}',RoomPrice='{1}',DefaultRoomPrice='{2}',RoomDesc='{3}' where RoomTypeID= @RoomTypeID ";
+                Query = string.Format(Query, RoomType, RoomPrice, DefRoomPrice, Description, RoomTypeGV.SelectedRow.Cells[1]);
+                Con.setData(Query);
+                ShowRoomType();
+                ErrMsg.InnerText = "Room Type Updated!";
+            }
+            catch (Exception Ex)
+            {
+                ErrMsg.InnerText = Ex.Message;
+            }
+        }
     }
 }
 

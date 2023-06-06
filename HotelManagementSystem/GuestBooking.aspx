@@ -40,6 +40,7 @@
                 <div class="mb-3">
                     <label for="GFirstNameTb" class="form-label">Number of Adults</label>
                     <asp:DropDownList ID="adultsDDL" runat="server">
+                        <asp:ListItem>Select</asp:ListItem>
                         <asp:ListItem>1</asp:ListItem>
                         <asp:ListItem>2</asp:ListItem>
                         <asp:ListItem>3</asp:ListItem>
@@ -50,18 +51,18 @@
 
                 <div class="mb-3">
                     <label for="GLastNameTb" class="form-label">First Name</label>
-                    <asp:TextBox ID="firstName" class="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="firstName" class="form-control" runat="server" ToolTip="The name of the person who will be checking in as it appears on the ID."></asp:TextBox>
                     
                 </div>
 
                 <div class="mb-3">
                     <label for="GenCb" class="form-label">Valid ID/Passport No.</label>
-                   <asp:TextBox ID="ID" class="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                   <asp:TextBox ID="ID" class="form-control" runat="server" TextMode="Number" ToolTip="The ID/Passport number of the person who will be checking in as it appears on the ID/Passport."></asp:TextBox>
                 </div>
 
                 <div class="mb-3">
                     <label for="Allergies" class="form-label">Allergies</label>
-                    <asp:TextBox ID="allergies" class="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="allergies" class="form-control" runat="server" ToolTip="if none, enter &quot;NA&quot;."></asp:TextBox>
                 </div>
                     </div>
 
@@ -83,6 +84,7 @@
                      <div class="mb-3">
                     <label for="GFirstNameTb" class="form-label">Number of Children</label>
                     <asp:DropDownList ID="childrenDDL" runat="server">
+                        <asp:ListItem>Select</asp:ListItem>
                         <asp:ListItem>1</asp:ListItem>
                         <asp:ListItem>2</asp:ListItem>
                         <asp:ListItem>3</asp:ListItem>
@@ -92,7 +94,7 @@
                 </div>
                       <div class="mb-3">
                     <label for="GLastNameTb" class="form-label">Last Name</label>
-                    <asp:TextBox ID="lastName" class="form-control" runat="server"></asp:TextBox>
+                    <asp:TextBox ID="lastName" class="form-control" runat="server" ToolTip="The last name of the person who will be checking in as it appears on the ID."></asp:TextBox>
                 </div>
                      <div class="mb-3">
                     <label for="PhoneTb" class="form-label">Phone No.</label>
@@ -109,13 +111,13 @@
                         <h4>Select your room:</h4>
                     </div>
                 <div id="select" style="justify-content:center; display:flex; width:100%; padding:3%"> <!--Room type selection goes here-->
-                    <asp:GridView ID="RoomGridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="RoomType" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="100%">
+                    <asp:GridView ID="RoomGridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="RoomType" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="100%" OnDataBound="RoomGridView1_DataBound">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
                             <asp:CommandField ButtonType="Button" ShowSelectButton="True" ShowCancelButton="False" />
                             <asp:BoundField DataField="RoomType" HeaderText="Room Type" ReadOnly="True" SortExpression="RoomType" />
-                            <asp:BoundField DataField="RoomPrice" HeaderText="Special Price" SortExpression="RoomPrice" ApplyFormatInEditMode="True" ReadOnly="True" />
-                            <asp:BoundField DataField="DefaultRoomPrice" HeaderText="Default Price" SortExpression="DefaultRoomPrice" />
+                            <asp:BoundField DataField="RoomPrice" HeaderText="Special Price" SortExpression="RoomPrice" ApplyFormatInEditMode="True" ReadOnly="True" DataFormatString="{0:C}" />
+                            <asp:BoundField DataField="DefaultRoomPrice" HeaderText="Default Price" SortExpression="DefaultRoomPrice" DataFormatString="{0:C}" />
                             <asp:BoundField DataField="RoomDesc" HeaderText="Room Description" SortExpression="RoomDesc" />
                         </Columns>
                         <EditRowStyle BackColor="#7C6F57" />

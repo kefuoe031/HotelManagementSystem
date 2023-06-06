@@ -44,14 +44,45 @@ namespace HotelManagementSystem
 
         protected void reserve_Click(object sender, EventArgs e)
         {
+            TextBox[] fields = { firstName, lastName,ID,allergies,phone,specReq};
+
             //Validate all fields
             if (checkOutCalendar.SelectedDate < checkInCalendar.SelectedDate)
             {
-                //show message to re-select a checkout date
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Check-out date cannot be before Check-in date." + "');", true);
             }
-            //else if () { }
+            else if (checkInCalendar.SelectedDate == null || checkOutCalendar.SelectedDate == null) {
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Please check if both your Check-in and Check-out dates are selected." + "');", true);
+            }
+            else if(adultsDDL.SelectedValue == "Select" || childrenDDL.SelectedValue =="Select")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Please select the number of Adults and/or Children." + "');", true);
+            }
+            else if(RoomGridView1.SelectedRow == null)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Please select a room you would like to book." + "');", true);
+            }
+            else
+            {
+                int i = 0;
+                do
+                {
+                    if (fields[i].Text == "" || fields[i].Text==null)
+                    {
+                        //Message to check if all fields are completed
+                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Please check if all fields are completed." + "');", true);
+                        fields[i].BorderColor = System.Drawing.Color.Red;
+                        return;
+                    }
+                    i++;
+                }
+                while (i < fields.Length);
+            }
+
             
-            try{
+
+            try
+            {
                 //capture cookies
                 Session["checkIn"] = checkInCalendar.SelectedDate.ToShortDateString();
                 Session["checkOut"] = checkOutCalendar.SelectedDate.ToShortDateString();
@@ -81,6 +112,11 @@ namespace HotelManagementSystem
         {
             checkInDate = checkInCalendar.SelectedDate.ToString();
             checkOutDate = checkOutCalendar.SelectedDate.ToString();
+        }
+
+        protected void RoomGridView1_DataBound(object sender, EventArgs e)
+        {
+
         }
     }
 }

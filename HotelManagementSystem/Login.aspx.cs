@@ -25,14 +25,7 @@ namespace HotelManagementSystem.Views
             }
             //if cannot connect to DB
             catch (Exception exc) {
-                System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                sb.Append("<script type = 'text/javascript'>");
-                sb.Append("window.onload=function(){");
-                sb.Append("alert('");
-                sb.Append(exc);
-                sb.Append("')};");
-                sb.Append("</script>");
-                ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + exc + "');", true);
                 con.Close();
             }
             con.Close();

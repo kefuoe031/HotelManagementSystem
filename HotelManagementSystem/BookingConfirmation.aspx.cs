@@ -1,14 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Data;
+using System.Data.SqlClient;
 
 namespace HotelManagementSystem
 {
     public partial class BookingConfirmation : System.Web.UI.Page
     {
+        string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
         protected void Page_Load(object sender, EventArgs e)
         {
             try
@@ -38,7 +43,22 @@ namespace HotelManagementSystem
 
         protected void confirm_Click(object sender, EventArgs e)
         {
+            //record into db
+            SqlConnection con = new SqlConnection();
+            try
+            {
+                //con.Open();
+                //SqlCommand addRecord = new SqlCommand("insert into $table$ (columns) values();");
+
+            }
+            catch (Exception ex)
+            {
+                //do something
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + ex + "');", true);
+            }
+
             //Go to Bill display > reporting functionality
+            
         }
 
         protected void makeChanges_Click(object sender, EventArgs e)
@@ -46,5 +66,7 @@ namespace HotelManagementSystem
             //go back to Guest booking Page
             
         }
+
+        
     }
 }

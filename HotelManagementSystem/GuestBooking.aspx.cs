@@ -99,6 +99,11 @@ namespace HotelManagementSystem
 
                 //then redirect to booking confirmation
                 Response.Redirect("BookingConfirmation.aspx");
+                //for(int i=0;i<fields.Length; i++)
+                //{
+                //    fields[i].BorderColor= "#ced4da";
+                //}
+                
             }
             catch(Exception ex)
             {

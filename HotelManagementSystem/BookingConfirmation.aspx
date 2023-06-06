@@ -52,7 +52,7 @@
 
                      <div class="mb-3">
                     <label for="roomType" class="form-label">Room Type: </label>
-                    <asp:TextBox ID="roomType" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
+                    <asp:TextBox ID="roomType" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None" TextMode="MultiLine"></asp:TextBox>
                 </div>
                     </div>
 
@@ -60,7 +60,7 @@
                        
                 <div class="mb-3">
                     <label for="GTitleTb" class="form-label">Check-Out Date: </label>
-                    <asp:TextBox ID="checkOut" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
+                    <asp:TextBox ID="checkOutDate" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
                      <div class="mb-3">
                     <label for="GFirstNameTb" class="form-label">Number of Children: </label>
@@ -89,7 +89,7 @@
                      <div class="d-grid">
                        <asp:Button ID="confirm" runat="server" class="btn btn-success btn-block" Text="Confirm Booking" OnClick="confirm_Click" />
                          <br />
-                       <asp:Button ID="makeChanges" runat="server" class="btn btn-success btn-block" Text="Edit Booking" OnClick="makeChanges_Click" BackColor="#666666" />
+                       <asp:Button ID="makeChanges" runat="server" class="btn btn-success btn-block" Text="Edit Booking" OnClientClick="JavaScript:window.history.back(1); return false;" BackColor="#666666" />
                 </div>
             <div class="col-4" style="padding:3%"></div>
                

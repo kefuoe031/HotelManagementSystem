@@ -25,7 +25,7 @@
                 <div class="mb-3" style="padding:20px">
                     <label for="GTitleTb" class="form-label" style="float:left; padding-right:10px">Check-In</label>
 
-                    <asp:Calendar ID="checkInCalendar" runat="server" BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Century Gothic" Font-Size="8pt" ForeColor="#666666" Height="144px" ShowGridLines="True" Width="220px" OnDayRender="checkInCalendar_DayRender">
+                    <asp:Calendar ID="checkInCalendar" runat="server" BackColor="White" BorderColor="White" BorderStyle="None" BorderWidth="1px" DayNameFormat="Shortest" Font-Names="Century Gothic" Font-Size="8pt" ForeColor="#666666" Height="144px" ShowGridLines="True" Width="220px" OnDayRender="checkInCalendar_DayRender" OnSelectionChanged="checkInCalendar_SelectionChanged">
                         <DayHeaderStyle BackColor="#EFF7FE" BorderStyle="Dashed" Font-Bold="True" Font-Names="Century Gothic" ForeColor="#666666" Height="1px" />
                         <DayStyle BackColor="White" ForeColor="#666666" />
                         <NextPrevStyle Font-Size="9pt" ForeColor="#FFFFCC" />
@@ -50,19 +50,18 @@
 
                 <div class="mb-3">
                     <label for="GLastNameTb" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="firstNameTb" />
+                    <asp:TextBox ID="firstName" class="form-control" runat="server"></asp:TextBox>
+                    
                 </div>
 
                 <div class="mb-3">
-                    <label for="GenCb" class="form-label">Valid ID No.</label>
-                    <asp:DropDownList ID="genderDdl" runat="server" class="form-control">
-                        
-                    </asp:DropDownList>
+                    <label for="GenCb" class="form-label">Valid ID/Passport No.</label>
+                   <asp:TextBox ID="ID" class="form-control" runat="server" TextMode="Number"></asp:TextBox>
                 </div>
 
                 <div class="mb-3">
-                    <label for="PassportNoTb" class="form-label">Allergies</label>
-                    <input type="text" class="form-control" id="idNoTb" />
+                    <label for="Allergies" class="form-label">Allergies</label>
+                    <asp:TextBox ID="allergies" class="form-control" runat="server"></asp:TextBox>
                 </div>
                     </div>
 
@@ -93,15 +92,15 @@
                 </div>
                       <div class="mb-3">
                     <label for="GLastNameTb" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="lastNameTb" />
+                    <asp:TextBox ID="lastName" class="form-control" runat="server"></asp:TextBox>
                 </div>
                      <div class="mb-3">
                     <label for="PhoneTb" class="form-label">Phone No.</label>
-                    <input type="text" class="form-control" id="PhoneTb" />
+                    <asp:TextBox ID="phone" class="form-control" runat="server" TextMode="Phone"></asp:TextBox>
                 </div>
                          <div class="mb-3">
                     <label for="PassportNoTb" class="form-label">Special Requirements</label>
-                    <input type="text" class="form-control" id="specReqTb" />
+                    <asp:TextBox ID="specReq" class="form-control" runat="server"></asp:TextBox>
                 </div>
                  
                     </div>
@@ -113,9 +112,9 @@
                     <asp:GridView ID="RoomGridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" DataKeyNames="RoomType" DataSourceID="SqlDataSource1" ForeColor="#333333" GridLines="None" Width="100%">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:CommandField ButtonType="Button" ShowSelectButton="True" />
+                            <asp:CommandField ButtonType="Button" ShowSelectButton="True" ShowCancelButton="False" />
                             <asp:BoundField DataField="RoomType" HeaderText="Room Type" ReadOnly="True" SortExpression="RoomType" />
-                            <asp:BoundField DataField="RoomPrice" HeaderText="Special Price" SortExpression="RoomPrice" />
+                            <asp:BoundField DataField="RoomPrice" HeaderText="Special Price" SortExpression="RoomPrice" ApplyFormatInEditMode="True" ReadOnly="True" />
                             <asp:BoundField DataField="DefaultRoomPrice" HeaderText="Default Price" SortExpression="DefaultRoomPrice" />
                             <asp:BoundField DataField="RoomDesc" HeaderText="Room Description" SortExpression="RoomDesc" />
                         </Columns>

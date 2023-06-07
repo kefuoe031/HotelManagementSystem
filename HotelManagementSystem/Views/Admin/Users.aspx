@@ -7,7 +7,7 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-4"></div>
-            <div class="col-4"><h1 class="text-body text-center">Manage Guests</h1></div>
+            <div class="col-4"><h1 class="text-body text-center">Register a Guest</h1></div>
             <div class="col-4"></div>
         </div>
         <div class="row">

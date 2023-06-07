@@ -15,7 +15,7 @@ namespace HotelManagementSystem.Views
     public partial class WebForm1 : System.Web.UI.Page
     {
         string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
-
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(connectionString);
@@ -43,13 +43,16 @@ namespace HotelManagementSystem.Views
             //if registered guest, redirect to bookings page
             else if (UserCb.Checked)
             {
-                SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM GuestTab WHERE Email = @user", con);
+                SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM GuestTab WHERE Email = @user and Password= @password", con);
                 check_User_Name.Parameters.AddWithValue("@user", emailTb.Text);
+                check_User_Name.Parameters.AddWithValue("@password", password.Text);
                 int UserExist = (int)check_User_Name.ExecuteScalar();
 
                 if (UserExist > 0)
                 {
                     //Username exist
+                    Session["email"] = emailTb.Text;
+                    Session["password"] = password.Text;
                     Response.Redirect("GuestBooking.aspx");
                     con.Close();
                 }

@@ -33,11 +33,14 @@
                 </div>
                 <div class="mb-3">
                     <label for="exampleInputPassword1" class="form-label">Password</label>
-                    <input type="password" class="form-control" id="PasswordTb"/>
+                    <asp:TextBox ID="password" runat="server" class="form-control" TextMode="Password"></asp:TextBox>
                 </div>
                 <div class="mb-3">
                     <asp:RadioButton ID="AdminCb" runat="server" class="form-check-input text-body" Text="Admin" OnCheckedChanged="AdminCb_CheckedChanged" />
                     <asp:RadioButton ID="UserCb" runat="server" class="form-check-input text-body" Text="Guest" OnCheckedChanged="UserCb_CheckedChanged" />
+                </div>
+                <div class="mb-3">
+                   <a href="Views/Admin/Users.aspx" style="text-decoration:none"><asp:Label ID="Label2" runat="server" Text="Register as a new Guest >" EnableTheming="True" ForeColor="#333333"></asp:Label> </a> 
                 </div>
                        <div class="d-grid">
                        <asp:Button ID="Login" runat="server" class="btn btn-danger btn-block" Text="Login" OnClick="Login_Click" />

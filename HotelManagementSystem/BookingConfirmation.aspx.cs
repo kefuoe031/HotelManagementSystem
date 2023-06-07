@@ -14,10 +14,14 @@ namespace HotelManagementSystem
     public partial class BookingConfirmation : System.Web.UI.Page
     {
         string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
+        protected string userEmail;
+        protected string userPassword;
         protected void Page_Load(object sender, EventArgs e)
         {
             try
             {
+                userEmail = Session["email"].ToString();
+                userPassword = Session["password"].ToString();
                 checkInDate.Text = Session["checkIn"].ToString();
                 checkOutDate.Text = Session["checkOut"].ToString();
                 numAdults.Text = Session["adults"].ToString();
@@ -35,26 +39,45 @@ namespace HotelManagementSystem
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert('Message: " + ex + "');", true);
             }
-                
-            
-          
-
+      
         }
 
         protected void confirm_Click(object sender, EventArgs e)
         {
             //record into db
-            SqlConnection con = new SqlConnection();
+            SqlConnection con = new SqlConnection(connectionString);
             try
             {
-                //con.Open();
-                //SqlCommand addRecord = new SqlCommand("insert into $table$ (columns) values();");
+                con.Open();
+                //get the GuestID from db
+                SqlCommand getGuestID = new SqlCommand("select GuestID from GuestTab where Email= @email and Password= @password", con);
+                getGuestID.Parameters.AddWithValue("@email", userEmail);
+                getGuestID.Parameters.AddWithValue("@password", userPassword);
+                int guestID = (int)getGuestID.ExecuteScalar();
+
+                //insert record into db
+                SqlCommand addRecord = new SqlCommand("insert into BookingTab (GuestID, CheckInDate, CheckOutDate, FirstName, LastName, NumAdults, NumChildren, RoomType, SpecialReq, Allergies, BookingDateTime) values(@GuestID, @CheckInDate, @CheckOutDate, @FirstName, @LastName, @NumAdults, @NumChildren, @RoomType, @SpecialReq, @Allergies, @BookingDateTime );", con);
+                addRecord.Parameters.AddWithValue("@GuestID",guestID);
+                addRecord.Parameters.AddWithValue("@CheckInDate", checkInDate.Text);
+                addRecord.Parameters.AddWithValue("@CheckOutDate", checkOutDate.Text);
+                addRecord.Parameters.AddWithValue("@FirstName", fname.Text);
+                addRecord.Parameters.AddWithValue("@LastName", lname.Text);
+                addRecord.Parameters.AddWithValue("@NumAdults", numAdults.Text);
+                addRecord.Parameters.AddWithValue("@NumChildren", numChildren.Text);
+                addRecord.Parameters.AddWithValue("@RoomType", roomType.Text);
+                addRecord.Parameters.AddWithValue("@SpecialReq", specReq.Text);
+                addRecord.Parameters.AddWithValue("@Allergies", allerg.Text);
+                addRecord.Parameters.AddWithValue("@BookingDateTime", DateTime.Now.Date);
+                addRecord.ExecuteNonQuery();
+                con.Close();
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Your reservation has been made. See your receipt for more information." + "');", true);
 
             }
             catch (Exception ex)
             {
                 //do something
                 ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + ex + "');", true);
+                con.Close();
             }
 
             //Go to Bill display > reporting functionality

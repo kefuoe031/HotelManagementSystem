@@ -11,9 +11,12 @@ namespace HotelManagementSystem
     {
         protected string checkInDate;
         protected string checkOutDate;
+        protected string userEmail;
+        protected string userPassword;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            userEmail = Session["email"].ToString();
+            userPassword = Session["password"].ToString();
         }
 
         protected void checkInCalendar_DayRender(object sender, DayRenderEventArgs e)
@@ -96,6 +99,8 @@ namespace HotelManagementSystem
                 Session["spec"] = specReq.Text;
                 Session["roomType"] = RoomGridView1.SelectedRow.Cells[1].Text + " : " + RoomGridView1.SelectedRow.Cells[4].Text;
                 Session["roomPrice"] = RoomGridView1.SelectedRow.Cells[2].Text;
+                Session["email"] = userEmail;
+                Session["password"] = userPassword;
 
                 //then redirect to booking confirmation
                 Response.Redirect("BookingConfirmation.aspx");

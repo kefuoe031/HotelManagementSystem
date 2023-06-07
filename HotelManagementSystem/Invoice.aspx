@@ -1,6 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Views/Admin/Admin.Master" CodeBehind="Bill.aspx.cs" Inherits="HotelManagementSystem.Bill" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Views/Admin/Admin.Master" CodeBehind="Invoice.aspx.cs" Inherits="HotelManagementSystem.Bill" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Mybody" runat="server">
-<!DOCTYPE html>
+    <!DOCTYPE html>
 
 <html>
 <head>
@@ -22,7 +22,9 @@
         
             <div class="row"style="width:90%; background-color:rgba(255,255,255,0.5); display:flex; justify-content:center">
                
-                <asp:Panel ID="Panel1" runat="server"></asp:Panel>
+                <asp:Panel ID="Panel1" runat="server">
+
+                </asp:Panel>
 
                 
                 <br />                             

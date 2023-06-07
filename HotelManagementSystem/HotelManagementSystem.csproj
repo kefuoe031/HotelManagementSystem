@@ -92,7 +92,7 @@
     <Content Include="Assets\Libraries\Bootstrap\js\bootstrap.esm.min.js" />
     <Content Include="Assets\Libraries\Bootstrap\js\bootstrap.js" />
     <Content Include="Assets\Libraries\Bootstrap\js\bootstrap.min.js" />
-    <Content Include="Bill.aspx" />
+    <Content Include="Invoice.aspx" />
     <Content Include="bin\HotelManagementSystem.dll" />
     <Content Include="bin\HotelManagementSystem.pdb" />
     <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
@@ -107,12 +107,12 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Bill.aspx.cs">
-      <DependentUpon>Bill.aspx</DependentUpon>
+    <Compile Include="Invoice.aspx.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Bill.aspx.designer.cs">
-      <DependentUpon>Bill.aspx</DependentUpon>
+    <Compile Include="Invoice.aspx.designer.cs">
+      <DependentUpon>Invoice.aspx</DependentUpon>
     </Compile>
     <Compile Include="BookingConfirmation.aspx.cs">
       <DependentUpon>BookingConfirmation.aspx</DependentUpon>

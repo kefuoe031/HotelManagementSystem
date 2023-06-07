@@ -72,7 +72,7 @@ namespace HotelManagementSystem
                 con.Close();
 
                 //Go to Bill display > reporting functionality
-                Response.Redirect("Bill.aspx");
+                Response.Redirect("Invoice.aspx");
             }
             catch (Exception ex)
             {

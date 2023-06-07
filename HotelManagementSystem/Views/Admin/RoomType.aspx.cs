@@ -24,7 +24,7 @@ namespace HotelManagementSystem.Views.Admin
 
         private void ShowRoomType()
         {
-            string Query = "select RoomType as RType, RoomPrice as RPrice, DefaultRoomPrice as DefRPrice, RoomDesc as RDescription from RoomTypeTab";
+            string Query = "select RoomType as RType, RoomPrice as RPrice, DefaultRoomPrice as DefRPrice, RoomDesc as RDescription, RoomTypeID as RtypeID from RoomTypeTab";
             RoomTypeGV.DataSource = Con.GetData(Query);
             RoomTypeGV.DataBind();
         }
@@ -83,7 +83,7 @@ namespace HotelManagementSystem.Views.Admin
         int Key = 0;
         protected void RoomTypeGV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Key = Convert.ToInt32(RoomTypeGV.SelectedRow.Cells[1].Text);
+           // Key = Convert.ToInt32(RoomTypeGV.SelectedRow.Cells[1].Text);
             RTypeTb.Value = RoomTypeGV.SelectedRow.Cells[1].Text;
             RPriceTb.Value = RoomTypeGV.SelectedRow.Cells[2].Text;
             DefRPriceTb.Value = RoomTypeGV.SelectedRow.Cells[3].Text;
@@ -100,11 +100,33 @@ namespace HotelManagementSystem.Views.Admin
                 string DefRoomPrice = DefRPriceTb.Value;
                 string Description = RDescriptionTb.Value;
 
-                string Query = "update RoomTypeTab set RoomType='{0}',RoomPrice='{1}',DefaultRoomPrice='{2}',RoomDesc='{3}' where RoomTypeID= @RoomTypeID ";
-                Query = string.Format(Query, RoomType, RoomPrice, DefRoomPrice, Description, RoomTypeGV.SelectedRow.Cells[1]);
+                string Query = "update RoomTypeTab set RoomType='{0}',RoomPrice='{1}',DefaultRoomPrice='{2}',RoomDesc='{3}' where RoomTypeID= {1}"; 
+                Query = string.Format(Query, RoomType, RoomPrice, DefRoomPrice, Description, RoomTypeGV.SelectedRow.Cells[1].Text);
                 Con.setData(Query);
                 ShowRoomType();
                 ErrMsg.InnerText = "Room Type Updated!";
+            }
+            catch (Exception Ex)
+            {
+                ErrMsg.InnerText = Ex.Message;
+            }
+        }
+
+        protected void DeleteBtn_Click(object sender, EventArgs e)
+        {
+
+            try
+            {
+                string RoomType = RTypeTb.Value;
+                string RoomPrice = RPriceTb.Value;
+                string DefRoomPrice = DefRPriceTb.Value;
+                string Description = RDescriptionTb.Value;
+
+                string Query = "delete from RoomTypeTab where RoomTypeID= {0}";
+                Query = string.Format(Query, RoomTypeGV.SelectedRow.Cells[1].Text);
+                Con.setData(Query);
+                ShowRoomType();
+                ErrMsg.InnerText = "Room Type Deleted!";
             }
             catch (Exception Ex)
             {

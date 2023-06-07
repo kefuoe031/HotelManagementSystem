@@ -70,8 +70,9 @@ namespace HotelManagementSystem
                 addRecord.Parameters.AddWithValue("@BookingDateTime", DateTime.Now.Date);
                 addRecord.ExecuteNonQuery();
                 con.Close();
-                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Your reservation has been made. See your receipt for more information." + "');", true);
 
+                //Go to Bill display > reporting functionality
+                Response.Redirect("Bill.aspx");
             }
             catch (Exception ex)
             {
@@ -80,15 +81,12 @@ namespace HotelManagementSystem
                 con.Close();
             }
 
-            //Go to Bill display > reporting functionality
             
+           
+
         }
 
-        protected void makeChanges_Click(object sender, EventArgs e)
-        {
-            //go back to Guest booking Page
-            
-        }
+        
 
         
     }

@@ -15,74 +15,94 @@ namespace HotelManagementSystem.Views
     public partial class WebForm1 : System.Web.UI.Page
     {
         string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
-        
+        SqlCommand checkUser;
         protected void Page_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(connectionString);
-            try
-            {
-                con.Open();
-            }
-            //if cannot connect to DB
-            catch (Exception exc) {
-                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + exc + "');", true);
-                con.Close();
-            }
+           
             con.Close();
         }
 
         protected void Login_Click(object sender, EventArgs e)
-            
         {
             SqlConnection con = new SqlConnection(connectionString);
-            con.Open();
-            //if admin, redirect to admin dashboard
-            if (AdminCb.Checked){
-                //Do something
-                }
-            //if registered guest, redirect to bookings page
-            else if (UserCb.Checked)
-            {
-                SqlCommand check_User_Name = new SqlCommand("SELECT COUNT(*) FROM GuestTab WHERE Email = @user and Password= @password", con);
-                check_User_Name.Parameters.AddWithValue("@user", emailTb.Text);
-                check_User_Name.Parameters.AddWithValue("@password", password.Text);
-                int UserExist = (int)check_User_Name.ExecuteScalar();
 
-                if (UserExist > 0)
+            try
+            {
+                con.Open();
+
+                if (AdminCb.Checked)
                 {
-                    //Username exist
-                    Session["email"] = emailTb.Text;
-                    Session["password"] = password.Text;
-                    Response.Redirect("GuestBooking.aspx");
-                    con.Close();
+                    checkUser= new SqlCommand("SELECT COUNT(*) FROM EmployeeTab WHERE Email = @user and Password= @password", con);
+                    checkUser.Parameters.AddWithValue("@user", emailTb.Text);
+                    checkUser.Parameters.AddWithValue("@password", password.Text);
+                    int UserExist = (int)checkUser.ExecuteScalar();
+
+                    if (UserExist > 0)
+                    {
+                        //User exists
+                        Session["email"] = emailTb.Text;
+                        Session["password"] = password.Text;
+                        //if admin, redirect to admin dashboard
+                        Response.Redirect("#");
+                        con.Close();
+                    }
+                    else
+                    {
+                        //User doesn't exist.
+                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "User doesn't exist. Please check your credentials and try again." + "');", true);
+                        con.Close();
+                    }
                 }
-                else
+                
+                else if (UserCb.Checked)
                 {
-                    //Username doesn't exist.
-                    System.Text.StringBuilder sb = new System.Text.StringBuilder();
-                    sb.Append("<script type = 'text/javascript'>");
-                    sb.Append("window.onload=function(){");
-                    sb.Append("alert('");
-                    sb.Append(UserExist);
-                    sb.Append("')};");
-                    sb.Append("</script>");
-                    ClientScript.RegisterClientScriptBlock(this.GetType(), "alert", sb.ToString());
-                    con.Close();
+                    checkUser = new SqlCommand("SELECT COUNT(*) FROM GuestTab WHERE Email = @user and Password= @password", con);
+                    checkUser.Parameters.AddWithValue("@user", emailTb.Text);
+                    checkUser.Parameters.AddWithValue("@password", password.Text);
+                    int UserExist = (int)checkUser.ExecuteScalar();
+
+                    if (UserExist > 0)
+                    {
+                        //Username exist
+                        Session["email"] = emailTb.Text;
+                        Session["password"] = password.Text;
+                        //if registered guest, redirect to bookings page
+                        Response.Redirect("GuestBooking.aspx");
+                        con.Close();
+                    }
+                    else
+                    {
+                        //User doesn't exist.
+                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "User doesn't exist. Please check your credentials and try again." + "');", true);
+                        con.Close();
+                    }
                 }
             }
-            
+            //if cannot connect to DB
+            catch 
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Cannot connect to the database. Please try again later." + "');", true);
+                con.Close();
+            }
 
             // if unregistered guest, "click register a new profile" label on the login page
+            //this functionality is coded into html
         }
 
         protected void AdminCb_CheckedChanged(object sender, EventArgs e)
         {
-            UserCb.Checked = false; //not sure why this isnt working
+            UserCb.Checked = false;
+            AdminCb.Checked = true;
+            
         }
 
         protected void UserCb_CheckedChanged(object sender, EventArgs e)
         {
-            AdminCb.Checked = false; //not sure why this isnt working
+            AdminCb.Checked = false;
+            UserCb.Checked = true;
         }
+
+       
     }
 }

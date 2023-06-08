@@ -72,7 +72,8 @@ namespace HotelManagementSystem
                 con.Close();
 
                 //Go to Bill display > reporting functionality
-                Response.Redirect("Invoice.aspx");
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Successful"+ "');", true);
+                //Response.Redirect("Invoice.aspx");
             }
             catch (Exception ex)
             {

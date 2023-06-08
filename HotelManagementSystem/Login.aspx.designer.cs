@@ -48,7 +48,7 @@ namespace HotelManagementSystem.Views
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton AdminCb;
+        protected global::System.Web.UI.WebControls.CheckBox AdminCb;
 
         /// <summary>
         /// UserCb control.
@@ -57,7 +57,7 @@ namespace HotelManagementSystem.Views
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.RadioButton UserCb;
+        protected global::System.Web.UI.WebControls.CheckBox UserCb;
 
         /// <summary>
         /// Label2 control.

@@ -52,10 +52,10 @@ namespace HotelManagementSystem.Views.Admin
             try
             {
                 string RoomNum = RNumberTb.Value;
-                string RoomType = RoomTypeTb.SelectedValue.ToString();
+                string RoomType = RoomTypeTb.SelectedItem.ToString();
                // string RoomPrice = RPriceTb.Value;
                 string HotelCode = HCodeTb.Value;
-                string Occupancy = "Available";
+                string Occupancy = OccTb.Value;
 
                 string Query = "insert into RoomTab values('{0}','{1}','{2}','{3}')";
                 Query = string.Format(Query, RoomNum, RoomType, HotelCode, Occupancy);
@@ -67,6 +67,44 @@ namespace HotelManagementSystem.Views.Admin
                 RoomTypeTb.SelectedIndex = -1;
                 //RPriceTb.Value = "";
                 HCodeTb.Value = "";
+                OccTb.Value = "";
+            }
+            catch (Exception Ex)
+            {
+                ErrMsg.InnerText = Ex.Message;
+            }
+        }
+
+        protected void RoomsGV_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Key = Convert.ToInt32(RoomTypeGV.SelectedRow.Cells[1].Text);
+            RNumberTb.Value = RoomsGV.SelectedRow.Cells[1].Text;
+            RoomTypeTb.SelectedItem.Text = RoomsGV.SelectedRow.Cells[2].Text;
+            HCodeTb.Value = RoomsGV.SelectedRow.Cells[3].Text;
+            OccTb.Value = RoomsGV.SelectedRow.Cells[4].Text;
+        }
+
+        protected void EditBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string RoomNum = RNumberTb.Value;
+                string RoomType = RoomTypeTb.SelectedItem.ToString();
+                // string RoomPrice = RPriceTb.Value;
+                string HotelCode = HCodeTb.Value;
+                string Occupancy = OccTb.Value;
+
+                string Query = "update RoomTab set RoomNo ='{0}',RoomType = '{1}',HotelCode = '{2}',Occupancy = '{3}' where RoomID = {4}";
+                Query = string.Format(Query, RoomNum, RoomType, HotelCode, Occupancy, RoomsGV.SelectedRow.Cells[1].Text);
+                Con.setData(Query);
+                ShowRooms();
+                ErrMsg.InnerText = "Room Updated!";
+
+                RNumberTb.Value = "";
+                RoomTypeTb.SelectedIndex = -1;
+                //RPriceTb.Value = "";
+                HCodeTb.Value = "";
+                OccTb.Value = "";
             }
             catch (Exception Ex)
             {

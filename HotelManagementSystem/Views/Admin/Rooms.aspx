@@ -49,7 +49,7 @@
                  <div>                    
                     <asp:Button ID="SaveBtn" runat="server" Text="Save"  class="btn btn-success btn-block" OnClick="SaveBtn_Click"/>
                     
-                    <asp:Button ID="EditBtn" runat="server" Text="Edit"  class="btn btn-warning btn-block"  Width="53px" />
+                    <asp:Button ID="EditBtn" runat="server" Text="Edit"  class="btn btn-warning btn-block"  Width="53px" OnClick="EditBtn_Click" />
                  <asp:Button ID="DeleteBtn" runat="server" Text="Delete"  class="btn btn-danger btn-block" Width="73px"  />
                 </div>                 
                 <br />
@@ -61,7 +61,7 @@
 </form>
             </div>
             <div class="col-md-9">
-                <asp:GridView ID="RoomsGV" runat="server" class="table" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AutoGenerateSelectButton="True">
+                <asp:GridView ID="RoomsGV" runat="server" class="table" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AutoGenerateSelectButton="True" OnSelectedIndexChanged="RoomsGV_SelectedIndexChanged">
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />

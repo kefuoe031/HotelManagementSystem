@@ -16,10 +16,20 @@ namespace HotelManagementSystem
         string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
         protected string userEmail;
         protected string userPassword;
+        int total=0;
         protected void Page_Load(object sender, EventArgs e)
         {
-            try
-            {
+            //try
+            //{
+                //calculating the total price based on room price and total number of days booked to stay
+                DateTime checkIn = (DateTime)Session["checkIn"];
+                DateTime checkOut = (DateTime)Session["checkOut"];
+
+                int totalDays = (checkOut - checkIn).Days;
+            //int cost = int.Parse(Session["roomPrice"].ToString());
+            //total += (totalDays * cost);
+
+
                 userEmail = Session["email"].ToString();
                 userPassword = Session["password"].ToString();
                 checkInDate.Text = Session["checkIn"].ToString();
@@ -33,12 +43,12 @@ namespace HotelManagementSystem
                 roomType.Text = Session["roomType"].ToString();
                 phone.Text = Session["phone"].ToString();
                 specReq.Text = Session["spec"].ToString();
-                roomPrice.Text = Session["roomPrice"].ToString();
-            }
-            catch (Exception ex)
-            {
-                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert('Message: " + ex + "');", true);
-            }
+                roomPrice.Text = total.ToString();
+            //}
+            //catch (Exception ex)
+            //{
+            //    ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert('Message: " + ex + "');", true);
+            //}
       
         }
 
@@ -56,8 +66,8 @@ namespace HotelManagementSystem
                 int guestID = (int)getGuestID.ExecuteScalar();
 
                 //insert record into db
-                SqlCommand addRecord = new SqlCommand("insert into BookingTab (GuestID, CheckInDate, CheckOutDate, FirstName, LastName, NumAdults, NumChildren, RoomType, SpecialReq, Allergies, BookingDateTime) values(@GuestID, @CheckInDate, @CheckOutDate, @FirstName, @LastName, @NumAdults, @NumChildren, @RoomType, @SpecialReq, @Allergies, @BookingDateTime );", con);
-                addRecord.Parameters.AddWithValue("@GuestID",guestID);
+                SqlCommand addRecord = new SqlCommand("insert into BookingTab (GuestID, CheckInDate, CheckOutDate, FirstName, LastName, NumAdults, NumChildren, RoomType, SpecialReq, Allergies, BookingDate) values(@GuestID, @CheckInDate, @CheckOutDate, @FirstName, @LastName, @NumAdults, @NumChildren, @RoomType, @SpecialReq, @Allergies, @BookingDateTime );", con);
+                addRecord.Parameters.AddWithValue("@GuestID",guestID.ToString());
                 addRecord.Parameters.AddWithValue("@CheckInDate", checkInDate.Text);
                 addRecord.Parameters.AddWithValue("@CheckOutDate", checkOutDate.Text);
                 addRecord.Parameters.AddWithValue("@FirstName", fname.Text);
@@ -72,8 +82,8 @@ namespace HotelManagementSystem
                 con.Close();
 
                 //Go to Bill display > reporting functionality
-                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Successful"+ "');", true);
-                //Response.Redirect("Invoice.aspx");
+                
+                Response.Redirect("Invoice.aspx");
             }
             catch (Exception ex)
             {

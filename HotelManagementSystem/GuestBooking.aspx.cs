@@ -87,8 +87,8 @@ namespace HotelManagementSystem
             try
             {
                 //capture cookies
-                Session["checkIn"] = checkInCalendar.SelectedDate.ToShortDateString();
-                Session["checkOut"] = checkOutCalendar.SelectedDate.ToShortDateString();
+                Session["checkIn"] = (DateTime)checkInCalendar.SelectedDate.Date;
+                Session["checkOut"] = (DateTime)checkOutCalendar.SelectedDate.Date;
                 Session["adults"] = adultsDDL.SelectedItem;
                 Session["child"] = childrenDDL.SelectedItem;
                 Session["fname"] = firstName.Text;

@@ -79,7 +79,7 @@
                     <asp:TextBox ID="specReq" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
                       <div class="mb-3">
-                    <label for="roomPrice" class="form-label">Room Price: </label>
+                    <label for="roomPrice" class="form-label">To Pay: </label>
                     <asp:TextBox ID="roomPrice" runat="server" ReadOnly="True" BackColor="#F5ECDE" BorderStyle="None"></asp:TextBox>
                 </div>
                  

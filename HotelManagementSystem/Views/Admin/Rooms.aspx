@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Rooms.aspx.cs"  Inherits="HotelManagementSystem.Views.Admin.Rooms" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Rooms.aspx.cs"  Inherits="HotelManagementSystem.Views.Admin.Rooms" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Mybody" runat="server">
@@ -17,7 +17,7 @@
 <form>      
                 <div class="mb-3">
                     <label for="RNumberTb" class="form-label">Room No.</label>
-                    <input type="text" class="form-control" id="RNumberTb" runat="server" />
+                    <input type="text" class="form-control" id="RNumberTb" runat="server" required="required" />
                 </div>
                 <div class="mb-3">
                     <label for="RoomTypeTb" class="form-label">Room Type</label>
@@ -28,16 +28,16 @@
                     <input type="text" class="form-control" id="RNumberTb" />
                 </div>--%>
                     </div>
-                  <br />
-                <div class="mb-3">
+                 <%-- <br />--%>
+                <%--<div class="mb-3">
                     <label for="RPriceTb" class="form-label">Room Price</label>
-                    <input type="text" class="form-control" id="RPriceTb" runat="server" />
-                </div>
+                    <input type="text" class="form-control" id="RPriceTb" runat="server" required="required"/>
+                </div>--%>
 
                   <br />
                 <div class="mb-3">
                     <label for="HCodeTb" class="form-label">Hotel Code</label>
-                    <input type="text" class="form-control" id="HCodeTb" runat="server" />
+                    <input type="text" class="form-control" id="HCodeTb" runat="server" required="required"/>
                 </div>
 
                 <br />

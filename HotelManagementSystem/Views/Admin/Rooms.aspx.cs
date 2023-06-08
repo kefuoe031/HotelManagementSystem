@@ -49,7 +49,29 @@ namespace HotelManagementSystem.Views.Admin
 
         protected void SaveBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string RoomNum = RNumberTb.Value;
+                string RoomType = RoomTypeTb.SelectedValue.ToString();
+               // string RoomPrice = RPriceTb.Value;
+                string HotelCode = HCodeTb.Value;
+                string Occupancy = "Available";
 
+                string Query = "insert into RoomTab values('{0}','{1}','{2}','{3}')";
+                Query = string.Format(Query, RoomNum, RoomType, HotelCode, Occupancy);
+                Con.setData(Query);
+                ShowRooms();
+                ErrMsg.InnerText = "Room Added!";
+
+                RNumberTb.Value = "";
+                RoomTypeTb.SelectedIndex = -1;
+                //RPriceTb.Value = "";
+                HCodeTb.Value = "";
+            }
+            catch (Exception Ex)
+            {
+                ErrMsg.InnerText = Ex.Message;
+            }
         }
     }
 }

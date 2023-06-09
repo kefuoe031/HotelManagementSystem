@@ -16,18 +16,20 @@ namespace HotelManagementSystem
         string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
         protected string userEmail;
         protected string userPassword;
-        int total=0;
+       
         protected void Page_Load(object sender, EventArgs e)
         {
-            //try
-            //{
+            try
+            {
                 //calculating the total price based on room price and total number of days booked to stay
                 DateTime checkIn = (DateTime)Session["checkIn"];
                 DateTime checkOut = (DateTime)Session["checkOut"];
 
                 int totalDays = (checkOut - checkIn).Days;
-            //int cost = int.Parse(Session["roomPrice"].ToString());
-            //total += (totalDays * cost);
+            int length = Session["roomPrice"].ToString().Length;
+            string price = Session["roomPrice"].ToString().Substring(1, length-3);
+            double cost = double.Parse(price); 
+            double total = totalDays * cost;
 
 
                 userEmail = Session["email"].ToString();
@@ -44,11 +46,11 @@ namespace HotelManagementSystem
                 phone.Text = Session["phone"].ToString();
                 specReq.Text = Session["spec"].ToString();
                 roomPrice.Text = total.ToString();
-            //}
-            //catch (Exception ex)
-            //{
-            //    ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert('Message: " + ex + "');", true);
-            //}
+            }
+            catch (Exception ex)
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert('Message: " + ex + "');", true);
+            }
       
         }
 

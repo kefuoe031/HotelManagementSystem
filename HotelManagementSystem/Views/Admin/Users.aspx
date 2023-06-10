@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="HotelManagementSystem.Views.Admin.Users" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Views/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Users.aspx.cs" Inherits="HotelManagementSystem.Views.Admin.Users" EnableEventValidation="false" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Mybody" runat="server">
@@ -16,22 +16,22 @@
 <form>      
                 <div class="mb-3">
                     <label for="GTitleTb" class="form-label">Guest Title</label>
-                    <input type="text" class="form-control" id="GTitleTb" />
+                    <input type="text" class="form-control" id="GTitleTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
                     <label for="GFirstNameTb" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="GFirstNameTb" />
+                    <input type="text" class="form-control" id="GFirstNameTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
                     <label for="GLastNameTb" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="GLastNameTb" />
+                    <input type="text" class="form-control" id="GLastNameTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
                     <label for="DobTb" class="form-label">DOB</label>
-                    <input type="text" class="form-control" id="DobTb" />
+                    <input type="text" class="form-control" id="DobTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
@@ -43,42 +43,42 @@
 
                 <div class="mb-3">
                     <label for="PhoneTb" class="form-label">Phone No.</label>
-                    <input type="text" class="form-control" id="PhoneTb" />
+                    <input type="text" class="form-control" id="PhoneTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
                     <label for="EmailTb" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="EmailTb" />
+                    <input type="text" class="form-control" id="EmailTb" runat="server"/>
                 </div>
 
                 <div class="mb-3">
                     <label for="PasswordTb" class="form-label">Password</label>
-                    <input type="text" class="form-control" id="PasswordTb" />
+                    <input type="text" class="form-control" id="PasswordTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
                     <label for="PassportNoTb" class="form-label">Passport No.</label>
-                    <input type="text" class="form-control" id="PassportNoTb" />
+                    <input type="text" class="form-control" id="PassportNoTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
                     <label for="AddressTb" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="AddressTb" />
+                    <input type="text" class="form-control" id="AddressTb" runat="server"/>
                 </div>
 
                 <div class="mb-3">
                     <label for="PostcodeTb" class="form-label">Postcode</label>
-                    <input type="text" class="form-control" id="PostcodeTb" />
+                    <input type="text" class="form-control" id="PostcodeTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
                     <label for="CityTb" class="form-label">City</label>
-                    <input type="text" class="form-control" id="CityTb" />
+                    <input type="text" class="form-control" id="CityTb" runat="server"/>
                 </div>
 
                 <div class="mb-3">
                     <label for="CountryTb" class="form-label">Country</label>
-                    <input type="text" class="form-control" id="CountryTb" />
+                    <input type="text" class="form-control" id="CountryTb" runat="server" />
                 </div>
                 
                 <%--</div>

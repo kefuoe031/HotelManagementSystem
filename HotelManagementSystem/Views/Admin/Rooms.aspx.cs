@@ -74,10 +74,10 @@ namespace HotelManagementSystem.Views.Admin
                 ErrMsg.InnerText = Ex.Message;
             }
         }
-
+        int Key = 0;
         protected void RoomsGV_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Key = Convert.ToInt32(RoomTypeGV.SelectedRow.Cells[1].Text);
+            Key = Convert.ToInt32(RoomsGV.SelectedRow.Cells[5].Text);
             RNumberTb.Value = RoomsGV.SelectedRow.Cells[1].Text;
             RoomTypeTb.SelectedItem.Text = RoomsGV.SelectedRow.Cells[2].Text;
             HCodeTb.Value = RoomsGV.SelectedRow.Cells[3].Text;
@@ -89,13 +89,13 @@ namespace HotelManagementSystem.Views.Admin
             try
             {
                 string RoomNum = RNumberTb.Value;
-                string RoomType = RoomTypeTb.SelectedItem.ToString();
+                string RoomType = RoomTypeTb.SelectedItem.Text.ToString();
                 // string RoomPrice = RPriceTb.Value;
                 string HotelCode = HCodeTb.Value;
                 string Occupancy = OccTb.Value;
 
                 string Query = "update RoomTab set RoomNo ='{0}',RoomType = '{1}',HotelCode = '{2}',Occupancy = '{3}' where RoomID = {4}";
-                Query = string.Format(Query, RoomNum, RoomType, HotelCode, Occupancy, RoomsGV.SelectedRow.Cells[1].Text);
+                Query = string.Format(Query, RoomNum, RoomType, HotelCode, Occupancy, RoomsGV.SelectedRow.Cells[5].Text);
                 Con.setData(Query);
                 ShowRooms();
                 ErrMsg.InnerText = "Room Updated!";
@@ -105,6 +105,22 @@ namespace HotelManagementSystem.Views.Admin
                 //RPriceTb.Value = "";
                 HCodeTb.Value = "";
                 OccTb.Value = "";
+            }
+            catch (Exception Ex)
+            {
+                ErrMsg.InnerText = Ex.Message;
+            }
+        }
+
+        protected void DeleteBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string Query = "delete from RoomTab where RoomID= {0}";
+                Query = string.Format(Query, RoomsGV.SelectedRow.Cells[5].Text);
+                Con.setData(Query);
+                ShowRooms();
+                ErrMsg.InnerText = "Room Deleted!";
             }
             catch (Exception Ex)
             {

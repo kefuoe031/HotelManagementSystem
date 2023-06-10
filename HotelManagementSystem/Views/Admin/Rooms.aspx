@@ -50,7 +50,7 @@
                     <asp:Button ID="SaveBtn" runat="server" Text="Save"  class="btn btn-success btn-block" OnClick="SaveBtn_Click"/>
                     
                     <asp:Button ID="EditBtn" runat="server" Text="Edit"  class="btn btn-warning btn-block"  Width="53px" OnClick="EditBtn_Click" />
-                 <asp:Button ID="DeleteBtn" runat="server" Text="Delete"  class="btn btn-danger btn-block" Width="73px"  />
+                 <asp:Button ID="DeleteBtn" runat="server" Text="Delete"  class="btn btn-danger btn-block" Width="73px" OnClick="DeleteBtn_Click"  />
                 </div>                 
                 <br />
 

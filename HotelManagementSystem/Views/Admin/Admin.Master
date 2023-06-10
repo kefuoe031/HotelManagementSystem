@@ -30,7 +30,7 @@
           <a class="nav-link" href="Users.aspx">Guests</a>  <%--Users--%>
         </li>   
           <li class="nav-item">
-          <a class="nav-link" href="../Login.aspx">Logout</a>
+          <a class="nav-link" href="../../Login.aspx">Logout</a>
         </li>           
       </ul>
     </div>

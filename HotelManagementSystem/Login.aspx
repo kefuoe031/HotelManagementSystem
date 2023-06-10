@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="HotelManagementSystem.Views.WebForm1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Login.aspx.cs" Inherits="HotelManagementSystem.Views.WebForm1" EnableEventValidation="false"%>
 
 <!DOCTYPE html>
 
@@ -45,7 +45,7 @@
                        <div class="d-grid">
                        <asp:Button ID="Login" runat="server" class="btn btn-danger btn-block" Text="Login" OnClick="Login_Click" />
                       
-                       </div>                
+                       </div>                 
                 <br />
                 </form>
          <%--// Bootstrap Email Sign in/ Log in form ends--%>

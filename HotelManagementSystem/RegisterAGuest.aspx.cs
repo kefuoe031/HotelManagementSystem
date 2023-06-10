@@ -13,5 +13,10 @@ namespace HotelManagementSystem
         {
 
         }
+
+        protected void register_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

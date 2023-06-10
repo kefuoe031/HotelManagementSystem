@@ -12,8 +12,7 @@
         </div>
         <div class="row">
             <div class="col-md-3">
-
-<form>      
+      
                 <div class="mb-3">
                     <label for="GTitleTb" class="form-label">Guest Title</label>
                     <input type="text" class="form-control" id="GTitleTb" runat="server" />
@@ -93,7 +92,6 @@
                        <button type="submit" class="btn btn-success btn-block">Save</button>
                 </div>                
                 <br />
-</form>
             </div>
             <div class="col-md-9">
                 <asp:GridView ID="RoomsGV" runat="server" class="table" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">

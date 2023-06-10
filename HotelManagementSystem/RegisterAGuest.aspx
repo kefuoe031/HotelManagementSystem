@@ -2,112 +2,130 @@
 
 <!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-    <title></title>
+<html>
+<head>
+    <title>Booking</title>
+    <link rel="stylesheet" href="../../Assets/Libraries/Bootstrap/css/bootstrap.min.css" />
 </head>
 <body>
-    <form id="form1" runat="server">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <div class="container-fluid">
-        <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4"><h1 class="text-body text-center">Register a Guest</h1></div>
-            <div class="col-4"></div>
+            <a class="navbar-brand" href="#">The Holiday Inn</a>
         </div>
-        <div class="row">
-            <div class="col-md-3">
+    </nav>
+    <form id="form1" runat="server">
 
-     
-                <div class="mb-3">
-                    <label for="GTitleTb" class="form-label">Guest Title</label>
-                    <input type="text" class="form-control" id="GTitleTb" />
+        <div class="container-fluid" style="background-color: burlywood; width: 100%">
+
+            <div class="row" style="display: flex; justify-content: center">
+
+                <div class="col-4" style="padding: 3%">
+                    <h1 class="text-body text-center">Make a Booking</h1>
                 </div>
 
-                <div class="mb-3">
-                    <label for="GFirstNameTb" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="GFirstNameTb" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="GLastNameTb" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="GLastNameTb" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="DobTb" class="form-label">DOB</label>
-                    <input type="text" class="form-control" id="DobTb" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="GenCb" class="form-label">Gender</label>
-                    <asp:DropDownList ID="RoomTypeTb" runat="server" class="form-control">
-                        
-                    </asp:DropDownList>
-                </div>
-
-                <div class="mb-3">
-                    <label for="PhoneTb" class="form-label">Phone No.</label>
-                    <input type="text" class="form-control" id="PhoneTb" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="EmailTb" class="form-label">Email</label>
-                    <input type="text" class="form-control" id="EmailTb" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="PasswordTb" class="form-label">Password</label>
-                    <input type="text" class="form-control" id="PasswordTb" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="PassportNoTb" class="form-label">Passport No.</label>
-                    <input type="text" class="form-control" id="PassportNoTb" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="AddressTb" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="AddressTb" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="PostcodeTb" class="form-label">Postcode</label>
-                    <input type="text" class="form-control" id="PostcodeTb" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="CityTb" class="form-label">City</label>
-                    <input type="text" class="form-control" id="CityTb" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="CountryTb" class="form-label">Country</label>
-                    <input type="text" class="form-control" id="CountryTb" />
-                </div>
-                
+                <div class="row" style="width: 90%; background-color: rgba(255,255,255,0.5); display: flex; justify-content: center">
+                    <div style="padding-bottom: 2%"></div>
+                    <div class="col-md-3 mb-3" style="width: 40%">
+                        <label for="title" class="form-label" runat="server">Title</label>
+                        <asp:DropDownList ID="DropDownList1" runat="server" class="form-control">
+                            <asp:ListItem>Mr</asp:ListItem>
+                            <asp:ListItem>Ms</asp:ListItem>
+                            <asp:ListItem>Mrs</asp:ListItem>
+                            <asp:ListItem>Prof</asp:ListItem>
+                            <asp:ListItem>Dr</asp:ListItem>
+                            <asp:ListItem></asp:ListItem>
+                        </asp:DropDownList>
                     </div>
-                  <br />
-                    
-                <div class="d-grid">
-                       <button type="submit" class="btn btn-success btn-block">Save</button>
-                </div>                
-                <br />
+                    <div class="col-md-3" style="width: 40%"></div>
+                    <div class="col-md-3" style="width: 40%">
+                        <div style="padding-bottom: 1%"></div>
 
+                        <div class="mb-3">
+                            <label for="GfirstNameTb" class="form-label">First Name</label>
+                            <asp:TextBox ID="firstNameTB" class="form-control" runat="server" ToolTip="Your first name as it appears on your ID."></asp:TextBox>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="DOB" class="form-label">Date of Birth</label>
+                            <asp:TextBox ID="dobTB" class="form-control" runat="server" TextMode="Date"></asp:TextBox>
+
+                        </div>
+                        <div class="mb-3">
+                            <label for="Genderlbl" class="form-label">gender</label>
+                            <asp:DropDownList ID="DropDownList2" runat="server" class="form-control">
+                                <asp:ListItem>Female</asp:ListItem>
+                                <asp:ListItem>Male</asp:ListItem>
+                                <asp:ListItem>Do not disclose</asp:ListItem>
+                            </asp:DropDownList>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="emaillbl" class="form-label">E-mail</label>
+                            <asp:TextBox ID="emailTB" class="form-control" runat="server" TextMode="Email"></asp:TextBox>
+                        </div>
+
+                        <div class="mb-3" style="float: left">
+                            <label for="postcodelbl" class="form-label">Post Code</label>
+                            <asp:TextBox ID="postCodeTB" class="form-control" runat="server" Style="width: 100%" TextMode="Number"></asp:TextBox>
+                        </div>
+                        <div class="mb-3" style="float: right">
+                            <label for="citylbl" class="form-label">City</label>
+                            <asp:TextBox ID="cityTB" class="form-control" runat="server" Style="width: 100%" TextMode="SingleLine"></asp:TextBox>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="PasswordTb" class="form-label">Password</label>
+                            <asp:TextBox ID="passwordTB" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                        </div>
+
+                    </div>
+
+                    <div class="col-md-3" style="width: 40%">
+                        <div style="padding-bottom: 1%"></div>
+                        <div class="mb-3">
+                            <label for="GLastNameTb" class="form-label">Last Name</label>
+                            <asp:TextBox ID="lastName" class="form-control" runat="server" ToolTip="The last name of the person who will be checking in as it appears on the ID."></asp:TextBox>
+                        </div>
+                        <div class="mb-3">
+                            <label for="ID" class="form-label">ID/Passport No.</label>
+                            <asp:TextBox ID="id" class="form-control" runat="server" TextMode="Number"></asp:TextBox>
+                        </div>
+                        <div class="mb-3">
+                            <label for="PhoneTb" class="form-label">Phone No.</label>
+                            <asp:TextBox ID="phone" class="form-control" runat="server" TextMode="Phone"></asp:TextBox>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Address" class="form-label">Street Address</label>
+                            <asp:TextBox ID="addrtb" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="mb-3">
+                            <label for="Country" class="form-label">Country</label>
+                            <asp:TextBox ID="countryTB" class="form-control" runat="server"></asp:TextBox>
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="cPasswordTb" class="form-label">Confirm Password</label>
+                            <asp:TextBox ID="confirmPass" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                        </div>
+
+                    </div>
+                    <br />
+
+                    <div class="d-grid">
+                        <asp:Button ID="register" runat="server" class="btn btn-success btn-block" Text="Register" OnClick="register_Click" />
+                    </div>
+                    <div class="col-4" style="padding: 3%"></div>
+
+                </div>
             </div>
-            <div class="col-md-9">
-                <asp:GridView ID="RoomsGV" runat="server" class="table" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
-                    <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
-                    <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />
-                    <SelectedRowStyle BackColor="#CC3333" Font-Bold="True" ForeColor="White" />
-                    <SortedAscendingCellStyle BackColor="#F7F7F7" />
-                    <SortedAscendingHeaderStyle BackColor="#4B4B4B" />
-                    <SortedDescendingCellStyle BackColor="#E5E5E5" />
-                    <SortedDescendingHeaderStyle BackColor="#242121" />
-                </asp:GridView>
-            </div>
+
         </div>
-  
+
     </form>
 </body>
 </html>
+<footer>
+        <div style="width:100%; height: 2%; padding:1%; background-color:#212529">
+            <h5 style="color:white; text-align:center; font-family:'Segoe UI'">Hotel Management System | ISTN713 2023</h5>
+        </div>
+    </footer>

@@ -68,7 +68,7 @@ namespace HotelManagementSystem.Views
                         Session["email"] = emailTb.Text;
                         Session["password"] = password.Text;
                         //if registered guest, redirect to bookings page
-                        Response.Redirect("GuestBooking.aspx");
+                        Response.Redirect("GuestDashboard.aspx");
                         con.Close();
                     }
                     else

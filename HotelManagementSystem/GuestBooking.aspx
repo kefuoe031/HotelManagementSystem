@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" MasterPageFile="~/Views/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="GuestBooking.aspx.cs" Inherits="HotelManagementSystem.GuestBooking" %>
+﻿<%@ Page Language="C#" MasterPageFile="~/Guest.Master" AutoEventWireup="true" CodeBehind="GuestBooking.aspx.cs" Inherits="HotelManagementSystem.GuestBooking" %>
 <asp:Content ID="Content3" ContentPlaceHolderID="Mybody" runat="server">
     <!DOCTYPE html>
 

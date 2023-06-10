@@ -107,6 +107,7 @@
     <Content Include="Assets\Libraries\Bootstrap\js\bootstrap.esm.min.js" />
     <Content Include="Assets\Libraries\Bootstrap\js\bootstrap.js" />
     <Content Include="Assets\Libraries\Bootstrap\js\bootstrap.min.js" />
+    <Content Include="GuestDashboard.aspx" />
     <Content Include="Invoice.aspx" />
     <Content Include="bin\HotelManagementSystem.dll" />
     <Content Include="bin\HotelManagementSystem.pdb" />
@@ -128,6 +129,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>CrystalReport2.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Guest.Master.cs">
+      <DependentUpon>Guest.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Guest.Master.designer.cs">
+      <DependentUpon>Guest.Master</DependentUpon>
+    </Compile>
+    <Compile Include="GuestDashboard.aspx.cs">
+      <DependentUpon>GuestDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuestDashboard.aspx.designer.cs">
+      <DependentUpon>GuestDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Invoice.aspx.cs">
       <DependentUpon>Invoice.aspx</DependentUpon>
@@ -222,6 +237,7 @@
     <Content Include="Assets\Libraries\Bootstrap\js\bootstrap.js.map" />
     <Content Include="Assets\Libraries\Bootstrap\js\bootstrap.min.js.map" />
     <Content Include="Views\Admin\Admin.Master" />
+    <Content Include="Guest.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

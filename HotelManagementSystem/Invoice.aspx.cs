@@ -20,7 +20,7 @@ namespace HotelManagementSystem
 
         protected void goToHome_Click(object sender, EventArgs e)
         {
-
+            Response.Redirect("GuestBooking.aspx");
         }
     }
 }

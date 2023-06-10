@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Views/Admin/Admin.Master" CodeBehind="Invoice.aspx.cs" Inherits="HotelManagementSystem.Bill" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true"  MasterPageFile="~/Guest.Master" CodeBehind="Invoice.aspx.cs" Inherits="HotelManagementSystem.Bill" %>
 <%@ Register assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" namespace="CrystalDecisions.Web" tagprefix="CR" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Mybody" runat="server">
     <!DOCTYPE html>

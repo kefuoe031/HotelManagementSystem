@@ -7,7 +7,7 @@
     <title>Booking</title>
 </head>
 <body>
-    <form id="form1">
+    <form id="form1" runat="server">
         <div>
              <div class="container-fluid" style="background-color: burlywood; width:100%">
     

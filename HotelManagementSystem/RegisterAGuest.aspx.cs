@@ -62,19 +62,19 @@ namespace HotelManagementSystem
                 }
                 else
                 {
+                    password += confirmPass.Text;
                     //check if the email is already registered
                     con.Open();
                     SqlCommand checkEmail = new SqlCommand("Select * from GuestTab where Email = '" + emailTB.Text + "';", con);
-                    int userExists = (int)checkEmail.ExecuteScalar();
+                    
 
-                    if (userExists > 0)
+                    if (checkEmail.ExecuteScalar() != null)
                     {
                         ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "This user already exists. Please go to the login page." + "');", true);
                         con.Close();
                     }
-                    else if (userExists <= 0)
+                    else if (checkEmail.ExecuteScalar() == null)
                     {
-                        con.Open();
                         SqlCommand cmd = new SqlCommand("insert into GuestTab (GuestTitle, FirstName, LastName, DOB, Gender, PhoneNo, Email, Password, PassportNo, Address, Postcode, City, Country) values (@title, @fname, @lname, @dob, @gender, @phone, @email, @pass, @ID, @addr, @zip, @city, @country );", con);
                         cmd.Parameters.AddWithValue("@title", DropDownList1.SelectedValue.ToString());
                         cmd.Parameters.AddWithValue("@fname", firstNameTB.Text);

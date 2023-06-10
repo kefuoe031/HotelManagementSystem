@@ -31,7 +31,7 @@ namespace HotelManagementSystem.Views
             {
                 con.Open();
 
-                if (AdminCb.Checked)
+                if (AdminCb.Checked && !UserCb.Checked)
                 {
                     checkUser= new SqlCommand("SELECT COUNT(*) FROM EmployeeTab WHERE Email = @user and Password= @password", con);
                     checkUser.Parameters.AddWithValue("@user", emailTb.Text);
@@ -55,7 +55,7 @@ namespace HotelManagementSystem.Views
                     }
                 }
                 
-                else if (UserCb.Checked)
+                else if (UserCb.Checked && !AdminCb.Checked)
                 {
                     checkUser = new SqlCommand("SELECT COUNT(*) FROM GuestTab WHERE Email = @user and Password= @password", con);
                     checkUser.Parameters.AddWithValue("@user", emailTb.Text);
@@ -77,6 +77,13 @@ namespace HotelManagementSystem.Views
                         ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "User doesn't exist. Please check your credentials and try again." + "');", true);
                         con.Close();
                     }
+                }
+                else if( AdminCb.Checked && UserCb.Checked){
+                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Please check only one checkbox and and try again." + "');", true);
+                    }
+                else
+                {
+                    ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Please check one of the checkboxes and try again." + "');", true);
                 }
             }
             //if cannot connect to DB

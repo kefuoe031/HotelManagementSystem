@@ -108,6 +108,7 @@
     <Content Include="Assets\Libraries\Bootstrap\js\bootstrap.js" />
     <Content Include="Assets\Libraries\Bootstrap\js\bootstrap.min.js" />
     <Content Include="GuestDashboard.aspx" />
+    <Content Include="GuestProfile.aspx" />
     <Content Include="Invoice.aspx" />
     <Content Include="bin\HotelManagementSystem.dll" />
     <Content Include="bin\HotelManagementSystem.pdb" />
@@ -143,6 +144,13 @@
     </Compile>
     <Compile Include="GuestDashboard.aspx.designer.cs">
       <DependentUpon>GuestDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="GuestProfile.aspx.cs">
+      <DependentUpon>GuestProfile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="GuestProfile.aspx.designer.cs">
+      <DependentUpon>GuestProfile.aspx</DependentUpon>
     </Compile>
     <Compile Include="Invoice.aspx.cs">
       <DependentUpon>Invoice.aspx</DependentUpon>

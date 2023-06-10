@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Views/Admin/Admin.Master" CodeBehind="BookingConfirmation.aspx.cs" Inherits="HotelManagementSystem.BookingConfirmation" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Guest.Master" CodeBehind="BookingConfirmation.aspx.cs" Inherits="HotelManagementSystem.BookingConfirmation" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Mybody" runat="server">
 <!DOCTYPE html>
 
@@ -7,7 +7,7 @@
     <title>Confirmation</title>
 </head>
 <body>
-    <form>
+    <form runat="server">
         <div>
              <div class="container-fluid" style="background-color: burlywood; width:100%">
     

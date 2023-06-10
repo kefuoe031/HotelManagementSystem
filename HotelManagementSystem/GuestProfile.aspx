@@ -71,10 +71,7 @@
                                 <asp:TextBox ID="cityTB" class="form-control" runat="server" Style="width: 100%" TextMode="SingleLine"></asp:TextBox>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="PasswordTb" class="form-label">Password</label>
-                                <asp:TextBox ID="passwordTB" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
-                            </div>
+                            
 
                         </div>
 
@@ -101,20 +98,28 @@
                                 <asp:TextBox ID="countryTB" class="form-control" runat="server"></asp:TextBox>
                             </div>
 
-                            <div class="mb-3">
-                                <label for="cPasswordTb" class="form-label">Confirm Password</label>
-                                <asp:TextBox ID="confirmPass" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
-                            </div>
+                            
 
                         </div>
                         <br />
+                        <div>
+                            <div><h4>Change Password</h4></div>
+                            <div class="mb-3">
+                                <label for="PasswordTb" class="form-label">Current Password</label>
+                                <asp:TextBox ID="passwordTB" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                            </div>
+                            <div class="mb-3">
+                                <label for="cPasswordTb" class="form-label">New Password</label>
+                                <asp:TextBox ID="confirmPass" class="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                            </div>
+                        </div>
 
                         <div class="d-grid">
                             <asp:Button ID="edit" runat="server" class="btn btn-success btn-block" Text="Edit Profile" OnClick="edit_Click"  />
                         </div>
                         <div class="col-4" style="padding-bottom: 2%"></div>
                         <div class="d-grid">
-                            <asp:Button ID="save" runat="server" class="btn btn-success btn-block" Text="Save Profile" BackColor="#666666" />
+                            <asp:Button ID="save" runat="server" class="btn btn-success btn-block" Text="Save Profile" BackColor="#666666" OnClick="save_Click" />
                         </div>
                         <div class="col-4" style="padding: 3%"></div>
 

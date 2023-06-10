@@ -82,11 +82,11 @@ namespace HotelManagementSystem.Views
             //if cannot connect to DB
             catch 
             {
-                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Cannot connect to the database. Please try again later." + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Error logging in. Please check your connection and try again." + "');", true);
                 con.Close();
             }
 
-            // if unregistered guest, "click register a new profile" label on the login page
+            //if unregistered guest, "click register as a new guest" label on the login page
             //this functionality is coded into html
         }
 

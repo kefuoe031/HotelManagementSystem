@@ -84,7 +84,7 @@
                         <div style="padding-bottom: 1%"></div>
                         <div class="mb-3">
                             <label for="GLastNameTb" class="form-label">Last Name</label>
-                            <asp:TextBox ID="lastName" class="form-control" runat="server" ToolTip="The last name of the person who will be checking in as it appears on the ID."></asp:TextBox>
+                            <asp:TextBox ID="lastNametb" class="form-control" runat="server" ToolTip="Your last name as it appears on your ID."></asp:TextBox>
                         </div>
                         <div class="mb-3">
                             <label for="ID" class="form-label">ID/Passport No.</label>
@@ -113,6 +113,10 @@
 
                     <div class="d-grid">
                         <asp:Button ID="register" runat="server" class="btn btn-success btn-block" Text="Register" OnClick="register_Click" />
+                    </div>
+                    <div class="col-4" style="padding-bottom: 2%"></div>
+                    <div class="d-grid">
+                        <asp:Button ID="backtologin" runat="server" class="btn btn-success btn-block" Text="Back to Login" OnClick="backtologin_Click" BackColor="#666666" />
                     </div>
                     <div class="col-4" style="padding: 3%"></div>
 

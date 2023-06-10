@@ -96,13 +96,13 @@ namespace HotelManagementSystem
         protected global::System.Web.UI.WebControls.TextBox passwordTB;
 
         /// <summary>
-        /// lastName control.
+        /// lastNametb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox lastName;
+        protected global::System.Web.UI.WebControls.TextBox lastNametb;
 
         /// <summary>
         /// id control.
@@ -157,5 +157,14 @@ namespace HotelManagementSystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button register;
+
+        /// <summary>
+        /// backtologin control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button backtologin;
     }
 }

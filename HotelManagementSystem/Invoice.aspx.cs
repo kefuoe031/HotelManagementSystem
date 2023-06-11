@@ -31,37 +31,31 @@ namespace HotelManagementSystem
 
         protected void Viewreport_Click(object sender, EventArgs e)
         {
-            ////int bookingId = (int)Session["bookingID"];
-
-            //DataSet ds = new DataSet();
-            //SqlConnection con = new SqlConnection(connectionString);
-            //SqlCommand cmd = new SqlCommand("select GuestID, FirstName, LastName, CheckIndate, CheckOutDate, NumAdults, NumChildren, RoomType from BookingTab where BookingID= @ID ", con);
-            //cmd.Parameters.AddWithValue("@ID",13);
-            //cmd.CommandType = CommandType.Text;
-            //SqlDataAdapter testda = new SqlDataAdapter(cmd);
-            //testda.Fill(ds);
-            //con.Open();
-            //ReportDocument myReportDocument = new ReportDocument();
-            //myReportDocument.Load("CrystalReport2.rpt", connectionString);
-            //myReportDocument.SetDataSource(ds);
-            //CrystalReportViewer1.ReportSource = myReportDocument;
-            //CrystalReportViewer1.DisplayToolbar = true;
-            //con.Close();
-
+            //int bookingId = (int)Session["bookingID"];
             SqlConnection con = new SqlConnection(connectionString);
-            SqlCommand cmd = new SqlCommand("Select * from BookingTab", con);
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            DataSet ds = new DataSet();
-            sda.Fill(ds);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("Select * from BookingTab where BookingID= @ID  ", con);
+                cmd.Parameters.AddWithValue("@ID", 13);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                sda.Fill(ds);
 
-            ReportDocument crp = new ReportDocument();
-            crp.Load(Server.MapPath("invoice.rpt"));
-            crp.SetDataSource(ds.Tables["table"]);
+                ReportDocument crp = new ReportDocument();
+                crp.Load(Server.MapPath("invoice.rpt"));
+                crp.SetDataSource(ds.Tables["table"]);
 
-            CrystalReportViewer1.ReportSource = crp;
-            crp.SetDatabaseLogon("Hons10","23jas");
-            crp.ExportToHttpResponse(ExportFormatType.PortableDocFormat, HttpContext.Current.Response, true, "The Holiday Inn Booking Invoice");
-            
+                CrystalReportViewer1.ReportSource = crp;
+                crp.SetDatabaseLogon("Hons10", "23jas");
+                crp.ExportToHttpResponse(ExportFormatType.PortableDocFormat, HttpContext.Current.Response, true, "The Holiday Inn Booking Invoice");
+                con.Close();
+            }
+            catch
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Error downloading report." + "');", true);
+            }
+       
         }
 
         protected void CrystalReportViewer1_Init(object sender, EventArgs e)

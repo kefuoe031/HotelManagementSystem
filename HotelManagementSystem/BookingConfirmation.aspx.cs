@@ -16,6 +16,7 @@ namespace HotelManagementSystem
         string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
         protected string userEmail;
         protected string userPassword;
+        protected int BookingID;
        
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -81,6 +82,11 @@ namespace HotelManagementSystem
                 addRecord.Parameters.AddWithValue("@Allergies", allerg.Text);
                 addRecord.Parameters.AddWithValue("@BookingDateTime", DateTime.Now.Date);
                 addRecord.ExecuteNonQuery();
+
+                SqlCommand getBookingID = new SqlCommand("select max(BookingID) from BookingTab;", con);
+                BookingID = (int)getBookingID.ExecuteScalar();
+                Session["bookingID"] = BookingID;
+
                 con.Close();
 
                 //Go to Bill display > reporting functionality

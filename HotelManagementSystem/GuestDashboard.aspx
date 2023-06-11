@@ -11,10 +11,28 @@
             <div class="container-fluid" style="background-color: antiquewhite; width: 100%">
 
                 <div class="row" style="display: flex; padding: 2%">
-                    <div style="background-color:#0097B2; width: 75%; float:left; padding:2%;border-radius:10px;">
+                    <div style="background-color:#0097B2; width: 70%; float:left; padding:2%;border-radius:10px;">
                         <img src="Assets\Images\sale.png" width="80%"/>
                         <h1 <%--class="text-body"--%> style="color:white; padding-top:5%">Monthly Specials</h1>
                         <h4 style="color:white">Get discounted prices in the month of June!</h4>
+                    </div>
+                    <div style="width:3%">
+                    </div>
+                    <div style="float:right; width:27%; background-color:#b3b3b3;padding:2%;border-radius:10px">
+                        <h4>Active Reservations</h4>
+                        <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataSourceID="SqlDataSource1">
+                            <Columns>
+                                <asp:BoundField DataField="CheckInDate" HeaderText="CheckInDate" SortExpression="CheckInDate" />
+                                <asp:BoundField DataField="CheckOutDate" HeaderText="CheckOutDate" SortExpression="CheckOutDate" />
+                                <asp:BoundField DataField="RoomType" HeaderText="RoomType" SortExpression="RoomType" />
+                            </Columns>
+                        </asp:GridView>
+                        <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Hons10ConnectionString %>" SelectCommand="SELECT [CheckInDate], [CheckOutDate], [RoomType] FROM [BookingTab] WHERE ([GuestID] = @GuestID)">
+                            <SelectParameters>
+                                <asp:SessionParameter Name="GuestID" SessionField="GuestID" Type="Int32" />
+                            </SelectParameters>
+                        </asp:SqlDataSource>
+                        <asp:Button ID="Button4" runat="server" class="btn btn-success btn-block" Text="Cancel Reservation" />
                     </div>
 
                     <div class="row" style="display: flex; padding: 2%">

@@ -87,15 +87,6 @@ namespace HotelManagementSystem
         protected global::System.Web.UI.WebControls.TextBox cityTB;
 
         /// <summary>
-        /// passwordTB control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox passwordTB;
-
-        /// <summary>
         /// lastNametb control.
         /// </summary>
         /// <remarks>
@@ -139,6 +130,15 @@ namespace HotelManagementSystem
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox countryTB;
+
+        /// <summary>
+        /// passwordTB control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox passwordTB;
 
         /// <summary>
         /// confirmPass control.

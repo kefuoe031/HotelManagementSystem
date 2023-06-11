@@ -44,7 +44,7 @@ namespace HotelManagementSystem.Views
                         Session["email"] = emailTb.Text;
                         Session["password"] = password.Text;
                         //if admin, redirect to admin dashboard
-                        Response.Redirect("#");
+                        Response.Redirect("UserDashboard.aspx");
                         con.Close();
                     }
                     else

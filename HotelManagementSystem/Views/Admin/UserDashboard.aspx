@@ -4,7 +4,7 @@
 
     <style type="text/css">
       body {
-          background-image: url('../../Assets/Images/Hotel_lobby.jpg');
+          background-image: url('../../Assets/Images/Hotel_lobby2.png');
       }
   </style>
 

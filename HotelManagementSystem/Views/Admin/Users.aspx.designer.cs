@@ -15,22 +15,22 @@ namespace HotelManagementSystem.Views.Admin
     {
 
         /// <summary>
-        /// GFirstNameTb control.
+        /// FirstNameTb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText GFirstNameTb;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText FirstNameTb;
 
         /// <summary>
-        /// GLastNameTb control.
+        /// LastNameTb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText GLastNameTb;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText LastNameTb;
 
         /// <summary>
         /// DobTb control.
@@ -42,13 +42,13 @@ namespace HotelManagementSystem.Views.Admin
         protected global::System.Web.UI.HtmlControls.HtmlInputText DobTb;
 
         /// <summary>
-        /// RoomTypeTb control.
+        /// GenTb control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList RoomTypeTb;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText GenTb;
 
         /// <summary>
         /// PhoneTb control.
@@ -75,15 +75,60 @@ namespace HotelManagementSystem.Views.Admin
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText PasswordTb;
+        protected global::System.Web.UI.HtmlControls.HtmlInputPassword PasswordTb;
 
         /// <summary>
-        /// RoomsGV control.
+        /// SaveBtn control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView RoomsGV;
+        protected global::System.Web.UI.WebControls.Button SaveBtn;
+
+        /// <summary>
+        /// EditBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button EditBtn;
+
+        /// <summary>
+        /// DeleteBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button DeleteBtn;
+
+        /// <summary>
+        /// ClearBtn control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button ClearBtn;
+
+        /// <summary>
+        /// ErrMsg control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ErrMsg;
+
+        /// <summary>
+        /// UsersGV control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView UsersGV;
     }
 }

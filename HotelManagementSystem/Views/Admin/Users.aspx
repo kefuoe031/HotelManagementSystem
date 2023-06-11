@@ -16,24 +16,22 @@
 
                 <div class="mb-3">
                     <label for="GFirstNameTb" class="form-label">First Name</label>
-                    <input type="text" class="form-control" id="GFirstNameTb" runat="server" />
+                    <input type="text" class="form-control" id="FirstNameTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
                     <label for="GLastNameTb" class="form-label">Last Name</label>
-                    <input type="text" class="form-control" id="GLastNameTb" runat="server" />
+                    <input type="text" class="form-control" id="LastNameTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
-                    <label for="DobTb" class="form-label">DOB</label>
-                    <input type="text" class="form-control" id="DobTb" runat="server" />
+                    <label for="DobTb" class="form-label">DOB (YYYY-MM-DD)</label>  
+                    <input type="text" class="form-control" id="DobTb" runat="server"  />
                 </div>
 
                 <div class="mb-3">
-                    <label for="GenCb" class="form-label">Gender</label>
-                    <asp:DropDownList ID="RoomTypeTb" runat="server" class="form-control">
-                        
-                    </asp:DropDownList>
+                    <label for="GenTb" class="form-label">Gender</label>
+                     <input type="text" class="form-control" id="GenTb" runat="server" />
                 </div>
 
                 <div class="mb-3">
@@ -48,7 +46,7 @@
 
                 <div class="mb-3">
                     <label for="PasswordTb" class="form-label">Password</label>
-                    <input type="text" class="form-control" id="PasswordTb" runat="server" />
+                    <input type="password" class="form-control" id="PasswordTb" runat="server" />
                 </div>
                 
                 
@@ -61,12 +59,20 @@
                   <br />
                     
                 <div class="d-grid">
-                       <button type="submit" class="btn btn-success btn-block">Save</button>
-                </div>                
+                       <asp:Button ID="SaveBtn" runat="server" Text="Save" class="btn btn-success btn-block" Width="73px" onclick="SaveBtn_Click"/>
+                      <asp:Button ID="EditBtn" runat="server" Text="Edit"  class="btn btn-warning btn-block"  Width="73px" onclick="EditBtn_Click" />
+                 <asp:Button ID="DeleteBtn" runat="server" Text="Delete"  class="btn btn-danger btn-block" Width="73px" OnClick="DeleteBtn_Click"  />
+                     <asp:Button ID="ClearBtn" runat="server" Text="Clear"  class="btn btn-secondary btn-block" Width="73px" OnClick="ClearBtn_Click" />
+                </div>    
+            
+            <div class="d-grid">
+                    <label id="ErrMsg" runat="server" class="text-danger"></label>
+                </div> 
+
                 <br />
             </div>
             <div class="col-md-9">
-                <asp:GridView ID="RoomsGV" runat="server" class="table" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal">
+                <asp:GridView ID="UsersGV" runat="server" class="table" BackColor="White" BorderColor="#CCCCCC" BorderStyle="None" BorderWidth="1px" CellPadding="4" ForeColor="Black" GridLines="Horizontal" AutoGenerateSelectButton="True">
                     <FooterStyle BackColor="#CCCC99" ForeColor="Black" />
                     <HeaderStyle BackColor="#333333" Font-Bold="True" ForeColor="White" />
                     <PagerStyle BackColor="White" ForeColor="Black" HorizontalAlign="Right" />

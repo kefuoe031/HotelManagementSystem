@@ -14,9 +14,8 @@ namespace HotelManagementSystem
         string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //get the guest ID
-            //string email = Session["email"].ToString();
-            string email = "lillybeth@gmail.com";
+            //get the guest ID to use to get existing booking records.
+            string email = Session["email"].ToString();
 
             SqlConnection con = new SqlConnection(connectionString);
             SqlCommand cmd = new SqlCommand("Select GuestID, Password from GuestTab where Email = @email;",con);
@@ -55,8 +54,8 @@ namespace HotelManagementSystem
             SqlConnection con = new SqlConnection(connectionString);
             int id = Convert.ToInt32(GridView1.SelectedRow.Cells[1].Text);
 
-            //try
-            //{
+            try
+            {
                 con.Open();
                 SqlCommand cmd = new SqlCommand("delete from BookingTab where BookingID=@id  ",con);
                 cmd.Parameters.AddWithValue("@id",id);
@@ -64,12 +63,12 @@ namespace HotelManagementSystem
                 con.Close();
                 ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Reservation canceled successfully." + "');", true);
             this.GridView1.DataBind();
-            //}
-            //catch
-            //{
-            //    ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Error cancelling reservation. Please try again." + "');", true);
-            //    con.Close();
-            //}
+            }
+            catch
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Error cancelling reservation. Please try again." + "');", true);
+                con.Close();
+            }
         }
 
     }

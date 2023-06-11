@@ -11,7 +11,7 @@ namespace HotelManagementSystem
 {
 
 
-    public partial class Bill
+    public partial class Invoice
     {
 
         /// <summary>

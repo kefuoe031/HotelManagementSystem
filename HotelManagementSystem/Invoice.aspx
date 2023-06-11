@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Guest.Master" CodeBehind="Invoice.aspx.cs" Inherits="HotelManagementSystem.Bill" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/Guest.Master" CodeBehind="Invoice.aspx.cs" Inherits="HotelManagementSystem.Invoice" %>
 
 <%@ Register Assembly="CrystalDecisions.Web, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" Namespace="CrystalDecisions.Web" TagPrefix="CR" %>
 <asp:Content ID="Content4" ContentPlaceHolderID="Mybody" runat="server">
@@ -19,7 +19,7 @@
                         <div class="col-4" style="padding: 3%; width: auto">
                             <h3 class="text-body text-center">Your booking has been reserved, and will only be confirmed once a payment has been made. </h3>
                             <br />
-                            <p class="text-body text-center">See your bill below:</p>
+                            <p class="text-body text-center">Download your invoice below:</p>
                         </div>
                         <div>
 
@@ -38,7 +38,7 @@
 
                             <br />
                             <div class="d-grid">
-                                <asp:Button ID="Viewreport" runat="server" class="btn btn-success btn-block" Text="View Reservation" OnClick="Viewreport_Click"/>
+                                <asp:Button ID="Viewreport" runat="server" class="btn btn-success btn-block" Text="Download Invoice" OnClick="Viewreport_Click"/>
                                 <br />
                             </div>
                             <div class="d-grid">

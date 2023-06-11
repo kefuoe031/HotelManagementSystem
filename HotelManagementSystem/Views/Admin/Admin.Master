@@ -7,6 +7,9 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
+  
+    <asp:ContentPlaceHolder ID="ExtraStyles" runat="server" />
+
     <link rel="stylesheet" href="../../Assets/Libraries/Bootstrap/css/bootstrap.min.css"/>
 </head>
 <body>       <%--Navbar starts--%>
@@ -27,7 +30,7 @@
           <a class="nav-link" href="RoomType.aspx">Room Type</a>
         </li>   
           <li class="nav-item">
-          <a class="nav-link" href="Users.aspx">Guests</a>  <%--Users--%>
+          <a class="nav-link" href="Users.aspx">Userds</a>  <%--Users--%>
         </li>   
           <li class="nav-item">
           <a class="nav-link" href="../../Login.aspx">Logout</a>

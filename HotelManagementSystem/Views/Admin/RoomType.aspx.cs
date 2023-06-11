@@ -83,7 +83,7 @@ namespace HotelManagementSystem.Views.Admin
         int Key = 0;
         protected void RoomTypeGV_SelectedIndexChanged(object sender, EventArgs e)
         {
-           // Key = Convert.ToInt32(RoomTypeGV.SelectedRow.Cells[1].Text);
+            Key = Convert.ToInt32(RoomTypeGV.SelectedRow.Cells[5].Text);
             RTypeTb.Value = RoomTypeGV.SelectedRow.Cells[1].Text;
             RPriceTb.Value = RoomTypeGV.SelectedRow.Cells[2].Text;
             DefRPriceTb.Value = RoomTypeGV.SelectedRow.Cells[3].Text;
@@ -100,8 +100,8 @@ namespace HotelManagementSystem.Views.Admin
                 string DefRoomPrice = DefRPriceTb.Value;
                 string Description = RDescriptionTb.Value;
 
-                string Query = "update RoomTypeTab set RoomType='{0}',RoomPrice='{1}',DefaultRoomPrice='{2}',RoomDesc='{3}' where RoomTypeID= {1}"; 
-                Query = string.Format(Query, RoomType, RoomPrice, DefRoomPrice, Description, RoomTypeGV.SelectedRow.Cells[1].Text);
+                string Query = "update RoomTypeTab set RoomType='{0}',RoomPrice='{1}',DefaultRoomPrice='{2}',RoomDesc='{3}' where RoomTypeID= {4}"; 
+                Query = string.Format(Query, RoomType, RoomPrice, DefRoomPrice, Description, RoomTypeGV.SelectedRow.Cells[5].Text);
                 Con.setData(Query);
                 ShowRoomType();
                 ErrMsg.InnerText = "Room Type Updated!";
@@ -132,6 +132,14 @@ namespace HotelManagementSystem.Views.Admin
             {
                 ErrMsg.InnerText = Ex.Message;
             }
+        }
+
+        protected void ClearBtn_Click(object sender, EventArgs e)
+        {
+            RTypeTb.Value = "";
+            RPriceTb.Value = "";
+            DefRPriceTb.Value = "";
+            RDescriptionTb.Value = "";
         }
     }
 }

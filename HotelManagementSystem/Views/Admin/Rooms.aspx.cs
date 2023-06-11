@@ -127,5 +127,12 @@ namespace HotelManagementSystem.Views.Admin
                 ErrMsg.InnerText = Ex.Message;
             }
         }
+
+        protected void ClearBtn_Click(object sender, EventArgs e)
+        {
+            RNumberTb.Value = "";
+            HCodeTb.Value = "";
+            OccTb.Value = "";
+        }
     }
 }

@@ -7,16 +7,12 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-4"></div>
-            <div class="col-4"><h1 class="text-body text-center">Register a Guest</h1></div>
+            <div class="col-4"><h1 class="text-body text-center">Manage Users</h1></div>
             <div class="col-4"></div>
         </div>
         <div class="row">
             <div class="col-md-3">
       
-                <div class="mb-3">
-                    <label for="GTitleTb" class="form-label">Guest Title</label>
-                    <input type="text" class="form-control" id="GTitleTb" runat="server" />
-                </div>
 
                 <div class="mb-3">
                     <label for="GFirstNameTb" class="form-label">First Name</label>
@@ -54,31 +50,7 @@
                     <label for="PasswordTb" class="form-label">Password</label>
                     <input type="text" class="form-control" id="PasswordTb" runat="server" />
                 </div>
-
-                <div class="mb-3">
-                    <label for="PassportNoTb" class="form-label">Passport No.</label>
-                    <input type="text" class="form-control" id="PassportNoTb" runat="server" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="AddressTb" class="form-label">Address</label>
-                    <input type="text" class="form-control" id="AddressTb" runat="server"/>
-                </div>
-
-                <div class="mb-3">
-                    <label for="PostcodeTb" class="form-label">Postcode</label>
-                    <input type="text" class="form-control" id="PostcodeTb" runat="server" />
-                </div>
-
-                <div class="mb-3">
-                    <label for="CityTb" class="form-label">City</label>
-                    <input type="text" class="form-control" id="CityTb" runat="server"/>
-                </div>
-
-                <div class="mb-3">
-                    <label for="CountryTb" class="form-label">Country</label>
-                    <input type="text" class="form-control" id="CountryTb" runat="server" />
-                </div>
+                
                 
                 <%--</div>
                     <div class="mb-3">

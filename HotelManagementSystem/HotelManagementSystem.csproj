@@ -81,6 +81,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\Images\Hotel_front.jpg" />
+    <Content Include="Assets\Images\Hotel_lobby.jpg" />
     <Content Include="Assets\Images\Hotel_pool.jpg" />
     <Content Include="Assets\Images\Hotel_reception.jpg" />
     <Content Include="Assets\Images\Hotel_room1.jpg" />
@@ -120,6 +121,7 @@
     <Content Include="RegisterAGuest.aspx" />
     <Content Include="Views\Admin\Rooms.aspx" />
     <Content Include="Views\Admin\RoomType.aspx" />
+    <Content Include="Views\Admin\UserDashboard.aspx" />
     <Content Include="Views\Admin\Users.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Web.config" />
@@ -205,6 +207,13 @@
     </Compile>
     <Compile Include="Views\Admin\RoomType.aspx.designer.cs">
       <DependentUpon>RoomType.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Admin\UserDashboard.aspx.cs">
+      <DependentUpon>UserDashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Admin\UserDashboard.aspx.designer.cs">
+      <DependentUpon>UserDashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="Views\Admin\Users.aspx.cs">
       <DependentUpon>Users.aspx</DependentUpon>

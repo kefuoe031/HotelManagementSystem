@@ -15,15 +15,6 @@ namespace HotelManagementSystem.Views.Admin
     {
 
         /// <summary>
-        /// GTitleTb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText GTitleTb;
-
-        /// <summary>
         /// GFirstNameTb control.
         /// </summary>
         /// <remarks>
@@ -85,51 +76,6 @@ namespace HotelManagementSystem.Views.Admin
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlInputText PasswordTb;
-
-        /// <summary>
-        /// PassportNoTb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText PassportNoTb;
-
-        /// <summary>
-        /// AddressTb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText AddressTb;
-
-        /// <summary>
-        /// PostcodeTb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText PostcodeTb;
-
-        /// <summary>
-        /// CityTb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CityTb;
-
-        /// <summary>
-        /// CountryTb control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText CountryTb;
 
         /// <summary>
         /// RoomsGV control.

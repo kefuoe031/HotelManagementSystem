@@ -51,6 +51,7 @@
                     
                     <asp:Button ID="EditBtn" runat="server" Text="Edit"  class="btn btn-warning btn-block" OnClick="Button2_Click" Width="53px" />
                  <asp:Button ID="DeleteBtn" runat="server" Text="Delete"  class="btn btn-danger btn-block" Width="73px" OnClick="DeleteBtn_Click" />
+                <asp:Button ID="ClearBtn" runat="server" Text="Clear"  class="btn btn-secondary btn-block" Width="73px" OnClick="ClearBtn_Click" />
                 </div>   
                     
                 <div class="d-grid">

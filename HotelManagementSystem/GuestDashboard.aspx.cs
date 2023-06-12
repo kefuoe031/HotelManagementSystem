@@ -15,11 +15,24 @@ namespace HotelManagementSystem
         double sale, price;
         protected void Page_Load(object sender, EventArgs e)
         {
+            string email = Session["email"].ToString();
+            string password = Session["password"].ToString();
+            SqlConnection con = new SqlConnection(connectionString);
+
+            //Set LoggedIn label on GuestMaster page
+            SqlCommand cmd1 = new SqlCommand("Select FirstName, LastName from GuestTab where Email= @email and Password= @pass ", con);
+            cmd1.Parameters.AddWithValue("@email", email);
+            cmd1.Parameters.AddWithValue("@pass", password);
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
+            sda1.Fill(dt1);
+            ((Label)Master.FindControl("Label1")).Text = "Logged-In: " + dt1.Rows[0][0].ToString() + " " + dt1.Rows[0][1].ToString();
+            Session["loggedin"] = ((Label)Master.FindControl("Label1")).Text;
 
             //get the guest ID to use to get existing booking records.
-            string email = Session["email"].ToString();
 
-            SqlConnection con = new SqlConnection(connectionString);
+
+
             SqlCommand cmd = new SqlCommand("Select GuestID, Password from GuestTab where Email = @email;",con);
             cmd.Parameters.AddWithValue("@email", email);
             DataTable dt = new DataTable();

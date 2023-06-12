@@ -31,6 +31,9 @@ namespace HotelManagementSystem
         }
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Set LoggedIn label on GuestMaster page
+            ((Label)Master.FindControl("Label1")).Text = Session["loggedin"].ToString();
+
             SqlConnection con = new SqlConnection(connectionString);
             guestID = Convert.ToInt32(Session["GuestID"]);
             currentPassword = Session["Password"].ToString();

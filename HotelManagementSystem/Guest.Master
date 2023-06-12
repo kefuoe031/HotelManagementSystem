@@ -7,43 +7,53 @@
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
-    <link rel="stylesheet" href="../../Assets/Libraries/Bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../Assets/Libraries/Bootstrap/css/bootstrap.min.css" />
 </head>
-<body>       <%--Navbar starts--%>
-    
+<body>
+    <%--Navbar starts--%>
+
 
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="GuestDashboard.aspx">The Holiday Inn</a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        
-        <li class="nav-item">
-          <a class="nav-link" href="GuestBooking.aspx">Make a Booking</a>
-        </li>    
-             
-          <li class="nav-item">
-          <a class="nav-link" href="GuestProfile.aspx">Manage my Profile</a>
-        </li>   
-          <li class="nav-item">
-          <a class="nav-link" href="../../Login.aspx">Logout</a>
-        </li>           
-      </ul>
-    </div>
-  </div>
-</nav>            
-          <%--Navbar ends--%>
+        <div class="container-fluid">
+            <a class="navbar-brand" href="GuestDashboard.aspx">The Holiday Inn</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="GuestBooking.aspx">Make a Booking</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="GuestProfile.aspx">Manage my Profile</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="../../Login.aspx">Logout</a>
+                    </li>
+                </ul>
+            </div>
+            <div style="float: right">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <asp:Label ID="Label1" runat="server" class="nav-link" Text="Label"> Logged-In: </asp:Label>
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    <%--Navbar ends--%>
     <asp:ContentPlaceHolder ID="Mybody" runat="server">
     </asp:ContentPlaceHolder>
 </body>
-    
+
 </html>
 <footer>
-        <div style="width:100%; height: 2%; padding:1%; background-color:#212529">
-            <h5 style="color:white; text-align:center; font-family:'Segoe UI'"> AlphaTech | ISTN713 2023</h5>
-        </div>
-    </footer>
+    <div style="width: 100%; height: 2%; padding: 1%; background-color: #212529">
+        <h5 style="color: white; text-align: center; font-family: 'Segoe UI'">AlphaTech | ISTN713 2023</h5>
+    </div>
+</footer>
 

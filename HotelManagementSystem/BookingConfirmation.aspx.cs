@@ -20,6 +20,9 @@ namespace HotelManagementSystem
        
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Set LoggedIn label on GuestMaster page
+            ((Label)Master.FindControl("Label1")).Text = Session["loggedin"].ToString();
+
             try
             {
                 //calculating the total price based on room price and total number of days booked to stay

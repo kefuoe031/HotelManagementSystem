@@ -51,13 +51,13 @@
 
                 <div class="mb-3">
                     <label for="GLastNameTb" class="form-label">First Name</label>
-                    <asp:TextBox ID="firstName" class="form-control" runat="server" ToolTip="The name of the person who will be checking in as it appears on the ID."></asp:TextBox>
+                    <asp:TextBox ID="firstName" class="form-control" runat="server" ToolTip="The name of the person who will be checking in as it appears on the ID." ReadOnly="True"></asp:TextBox>
                     
                 </div>
 
                 <div class="mb-3">
                     <label for="GenCb" class="form-label">Valid ID/Passport No.</label>
-                   <asp:TextBox ID="ID" class="form-control" runat="server" TextMode="Number" ToolTip="The ID/Passport number of the person who will be checking in as it appears on the ID/Passport."></asp:TextBox>
+                   <asp:TextBox ID="ID" class="form-control" runat="server" TextMode="Number" ToolTip="The ID/Passport number of the person who will be checking in as it appears on the ID/Passport." ReadOnly="True"></asp:TextBox>
                 </div>
 
                 <div class="mb-3">
@@ -95,7 +95,7 @@
                 </div>
                       <div class="mb-3">
                     <label for="GLastNameTb" class="form-label">Last Name</label>
-                    <asp:TextBox ID="lastName" class="form-control" runat="server" ToolTip="The last name of the person who will be checking in as it appears on the ID."></asp:TextBox>
+                    <asp:TextBox ID="lastName" class="form-control" runat="server" ToolTip="The last name of the person who will be checking in as it appears on the ID." ReadOnly="True"></asp:TextBox>
                 </div>
                      <div class="mb-3">
                     <label for="PhoneTb" class="form-label">Phone No.</label>

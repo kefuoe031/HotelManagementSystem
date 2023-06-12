@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -13,10 +15,32 @@ namespace HotelManagementSystem
         protected string checkOutDate;
         protected string userEmail;
         protected string userPassword;
+        string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             userEmail = Session["email"].ToString();
             userPassword = Session["password"].ToString();
+            SqlConnection con = new SqlConnection(connectionString);
+            try
+            {
+                con.Open();
+                SqlCommand cmd = new SqlCommand("select FirstName, LastName, PassportNo from GuestTab where Email=@email", con);
+                cmd.Parameters.AddWithValue("@email", userEmail);
+                SqlDataAdapter sda = new SqlDataAdapter(cmd);
+                DataTable dt = new DataTable();
+                sda.Fill(dt);
+                firstName.Text = dt.Rows[0][0].ToString();
+                lastName.Text = dt.Rows[0][1].ToString();
+                ID.Text = dt.Rows[0][2].ToString();
+                con.Close();
+            }
+            catch
+            {
+                //do something
+                con.Close();
+            }
+
         }
 
         protected void checkInCalendar_DayRender(object sender, DayRenderEventArgs e)

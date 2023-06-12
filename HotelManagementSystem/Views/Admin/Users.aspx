@@ -6,9 +6,9 @@
        <%--<h1 class="text-body">Manage Rooms</h1>--%>
     <div class="container-fluid">
         <div class="row">
-            <div class="col-4"></div>
-            <div class="col-4"><h1 class="text-body text-center">Manage Users</h1></div>
-            <div class="col-4"></div>
+            <div class="col-3"></div>
+            <div class="col-5"><h1 class="text-body text-center">Manage Administrators</h1></div>
+            <div class="col-3"></div>
         </div>
         <div class="row">
             <div class="col-md-3">

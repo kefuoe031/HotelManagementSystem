@@ -24,7 +24,7 @@ namespace HotelManagementSystem.Views.Admin
 
         private void ShowRoomType()
         {
-            string Query = "select RoomType as RType, RoomPrice as RPrice, DefaultRoomPrice as DefRPrice, RoomDesc as RDescription, RoomTypeID as RtypeID from RoomTypeTab";
+            string Query = "select RoomType as 'Room Type', RoomPrice as 'Price', DefaultRoomPrice as 'Default Price', RoomDesc as 'Description', RoomTypeID as 'Room ID' from RoomTypeTab";
             RoomTypeGV.DataSource = Con.GetData(Query);
             RoomTypeGV.DataBind();
         }

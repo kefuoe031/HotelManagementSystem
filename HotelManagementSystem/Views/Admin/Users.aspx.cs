@@ -40,8 +40,7 @@ namespace HotelManagementSystem.Views.Admin
                 string Email = EmailTb.Value;
                 string Password = PasswordTb.Value;
 
-                string Query = "insert into EmployeeTab (FirstName, LastName, DOB, Gender, PhoneNo, Email, Password) values (@FirstName, @LastName, @DOB, @Gender, @PhoneNo, @Email, @Password)";
-               
+                string Query = "insert into EmployeeTab (FirstName,LastName,DOB,Gender,PhoneNo,Email,Password) values ('{0}','{1}','{2}','{3}','{4}','{5}','{6}')";
                 Query = string.Format(Query, FirstName, LastName, DOB, Gender, PhoneNo, Email, Password);
                 Con.setData(Query);
                 ShowUsers();
@@ -60,7 +59,27 @@ namespace HotelManagementSystem.Views.Admin
 
         protected void DeleteBtn_Click(object sender, EventArgs e)
         {
+            try
+            {
+                string FirstName = FirstNameTb.Value;
+                string LastName = LastNameTb.Value;
+                string DOB = DobTb.Value;     //DOB format is in YYYY-MM-DD
+                string Gender = GenTb.Value;
+                string PhoneNo = PhoneTb.Value;
+                string Email = EmailTb.Value;
+                string Password = PasswordTb.Value;
 
+
+                string Query = "delete from EmployeeTab where EmployeeID= {0}";
+                Query = string.Format(Query, UsersGV.SelectedRow.Cells[1].Text);
+                Con.setData(Query);
+                ShowUsers();
+                ErrMsg.InnerText = "User Deleted!";
+            }
+            catch (Exception Ex)
+            {
+                ErrMsg.InnerText = Ex.Message;
+            }
         }
 
         protected void ClearBtn_Click(object sender, EventArgs e)

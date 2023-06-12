@@ -14,7 +14,7 @@ namespace HotelManagementSystem.Views.Admin
         {
             Con = new Models.Functions();
             ShowRooms();
-            //GetRoomTypes();
+           // GetRoomTypes();
         }
 
         public override void VerifyRenderingInServerForm(Control control)
@@ -90,7 +90,7 @@ namespace HotelManagementSystem.Views.Admin
             try
             {
                 string RoomNum = RNumberTb.Value;
-                string RoomType = RoomTypeTb.SelectedItem.Text.ToString();
+                string RoomType = RoomTypeTb.SelectedItem.Text;
                 // string RoomPrice = RPriceTb.Value;
                 string HotelCode = HCodeTb.Value;
                 string Occupancy = OccTb.Value;
@@ -134,6 +134,7 @@ namespace HotelManagementSystem.Views.Admin
             RNumberTb.Value = "";
             HCodeTb.Value = "";
             OccTb.Value = "";
+            RoomTypeTb.SelectedIndex = -1;
         }
     }
 }

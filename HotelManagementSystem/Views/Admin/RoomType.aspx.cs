@@ -68,7 +68,7 @@ namespace HotelManagementSystem.Views.Admin
                 string DefRoomPrice = DefRPriceTb.Value;
                 string Description = RDescriptionTb.Value;
 
-                string Query = "insert into RoomTypeTab values('{0}','{1}','{2}','{3}')";
+                string Query = "insert into RoomTypeTab(RoomType, RoomPrice, DefaultRoomPrice, RoomDesc) values('{0}','{1}','{2}','{3}')";
                 Query = string.Format(Query, RoomType, RoomPrice, DefRoomPrice, Description);
                 Con.setData(Query);
                 ShowRoomType();
@@ -123,7 +123,7 @@ namespace HotelManagementSystem.Views.Admin
                 string Description = RDescriptionTb.Value;
 
                 string Query = "delete from RoomTypeTab where RoomTypeID= {0}";
-                Query = string.Format(Query, RoomTypeGV.SelectedRow.Cells[1].Text);
+                Query = string.Format(Query, RoomTypeGV.SelectedRow.Cells[5].Text);
                 Con.setData(Query);
                 ShowRoomType();
                 ErrMsg.InnerText = "Room Type Deleted!";

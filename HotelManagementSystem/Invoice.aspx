@@ -17,17 +17,17 @@
                         <div class="col-4" style="padding: 3%; width: auto">
                             <h3 class="text-body text-center">Your booking has been reserved, and will only be confirmed once a payment has been made. </h3>
                             <br />
-                            <p class="text-body text-center">Download your invoice below:</p>
+                            <p class="text-body text-center">Download your invoice below or make another booking.</p>
                         </div>
                         <div>
-                            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True"  Height="1202px" OnInit="CrystalReportViewer1_Init" ReportSourceID="CrystalReportSource" ReuseParameterValuesOnRefresh="True" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="1104px" />
-                            <CR:CrystalReportSource ID="CrystalReportSource" runat="server">
+                            <CR:CrystalReportViewer ID="CrystalReportViewer1" runat="server" AutoDataBind="True" GroupTreeImagesFolderUrl="" Height="1269px" ReportSourceID="CrystalReportSource1" ToolbarImagesFolderUrl="" ToolPanelWidth="200px" Width="1082px" />
+                            <CR:CrystalReportSource ID="CrystalReportSource1" runat="server">
                                 <Report FileName="invoice.rpt">
                                 </Report>
                             </CR:CrystalReportSource>
                         </div>
 
-                        <div class="row" style="width: 90%; background-color: rgba(255,255,255,0.5); display: flex; justify-content: center">
+                        <div class="row" style="width: 90%; display: flex; justify-content: center">
 
                             <div class="d-grid">
                                 <asp:Button ID="Viewreport" runat="server" class="btn btn-success btn-block" Text="Download Invoice" OnClick="Viewreport_Click" />

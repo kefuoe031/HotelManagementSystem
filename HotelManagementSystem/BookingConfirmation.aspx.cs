@@ -69,7 +69,7 @@ namespace HotelManagementSystem
                 int guestID = (int)getGuestID.ExecuteScalar();
 
                 //insert record into db
-                SqlCommand addRecord = new SqlCommand("insert into BookingTab (GuestID, CheckInDate, CheckOutDate, FirstName, LastName, NumAdults, NumChildren, RoomType, SpecialReq, Allergies, BookingDate) values(@GuestID, @CheckInDate, @CheckOutDate, @FirstName, @LastName, @NumAdults, @NumChildren, @RoomType, @SpecialReq, @Allergies, @BookingDateTime );", con);
+                SqlCommand addRecord = new SqlCommand("insert into BookingTab (GuestID, CheckInDate, CheckOutDate, FirstName, LastName, NumAdults, NumChildren, RoomType, SpecialReq, Allergies, BookingDate, Amount) values(@GuestID, @CheckInDate, @CheckOutDate, @FirstName, @LastName, @NumAdults, @NumChildren, @RoomType, @SpecialReq, @Allergies, @BookingDateTime, @Amount );", con);
                 addRecord.Parameters.AddWithValue("@GuestID",guestID.ToString());
                 addRecord.Parameters.AddWithValue("@CheckInDate", checkInDate.Text);
                 addRecord.Parameters.AddWithValue("@CheckOutDate", checkOutDate.Text);
@@ -81,6 +81,8 @@ namespace HotelManagementSystem
                 addRecord.Parameters.AddWithValue("@SpecialReq", specReq.Text);
                 addRecord.Parameters.AddWithValue("@Allergies", allerg.Text);
                 addRecord.Parameters.AddWithValue("@BookingDateTime", DateTime.Now.Date);
+                addRecord.Parameters.AddWithValue("@Amount", roomPrice.Text);
+
                 addRecord.ExecuteNonQuery();
 
                 SqlCommand getBookingID = new SqlCommand("select max(BookingID) from BookingTab;", con);

@@ -31,32 +31,35 @@ namespace HotelManagementSystem
 
         protected void Viewreport_Click(object sender, EventArgs e)
         {
-            //int bookingId = (int)Session["bookingID"];
+            int bookingId = (int)Session["bookingID"];
             SqlConnection con = new SqlConnection(connectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("Select * from BookingTab where BookingID= @ID  ", con);
-                cmd.Parameters.AddWithValue("@ID", 13);
+                SqlCommand cmd = new SqlCommand("Select * from BookingTab  ", con);
+                //cmd.Parameters.AddWithValue("@ID", 13);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataSet ds = new DataSet();
                 sda.Fill(ds);
 
                 ReportDocument crp = new ReportDocument();
                 crp.Load(Server.MapPath("invoice.rpt"));
-                crp.SetDataSource(ds.Tables["table"]);
-
+                crp.SetDataSource(ds);
+                crp.SetParameterValue("ID", bookingId);
                 CrystalReportViewer1.ReportSource = crp;
                 crp.SetDatabaseLogon("Hons10", "23jas");
+
                 crp.ExportToHttpResponse(ExportFormatType.PortableDocFormat, HttpContext.Current.Response, true, "The Holiday Inn Booking Invoice");
                 con.Close();
             }
             catch
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Error downloading report." + "');", true);
+                con.Close();
             }
-       
         }
+
+    
 
         protected void CrystalReportViewer1_Init(object sender, EventArgs e)
         {

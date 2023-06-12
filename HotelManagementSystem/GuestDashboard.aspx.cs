@@ -43,13 +43,13 @@ namespace HotelManagementSystem
             SqlDataAdapter sda2 = new SqlDataAdapter(cmd2);
             DataTable dt2 = new DataTable();
             sda2.Fill(dt2);
-            TextBox1.Text += String.Format("{0:0.00}",Convert.ToDouble(dt2.Rows[1][1]));//dt2.Rows[1][1].ToString();
-            TextBox3.Text += String.Format("{0:0.00}", Convert.ToDouble(dt2.Rows[2][1]));
-            TextBox5.Text += String.Format("{0:0.00}", Convert.ToDouble(dt2.Rows[0][1]));
+            TextBox1.Text = "R " + String.Format("{0:0.00}",Convert.ToDouble(dt2.Rows[1][1]));//dt2.Rows[1][1].ToString();
+            TextBox3.Text = "R " + String.Format("{0:0.00}", Convert.ToDouble(dt2.Rows[2][1]));
+            TextBox5.Text = "R " + String.Format("{0:0.00}", Convert.ToDouble(dt2.Rows[0][1]));
             
-            TextBox2.Text += (Convert.ToDouble(dt2.Rows[1][2]) - Convert.ToDouble(dt2.Rows[1][1])).ToString();
-            TextBox4.Text += (Convert.ToDouble(dt2.Rows[2][2]) - Convert.ToDouble(dt2.Rows[2][1])).ToString();
-            TextBox6.Text += (Convert.ToDouble(dt2.Rows[0][2]) - Convert.ToDouble(dt2.Rows[0][1])).ToString();
+            TextBox2.Text = "R " + (Convert.ToDouble(dt2.Rows[1][2]) - Convert.ToDouble(dt2.Rows[1][1])).ToString();
+            TextBox4.Text = "R " + (Convert.ToDouble(dt2.Rows[2][2]) - Convert.ToDouble(dt2.Rows[2][1])).ToString();
+            TextBox6.Text = "R " + (Convert.ToDouble(dt2.Rows[0][2]) - Convert.ToDouble(dt2.Rows[0][1])).ToString();
 
         }
 

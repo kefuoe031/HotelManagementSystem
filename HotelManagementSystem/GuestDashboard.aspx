@@ -12,7 +12,7 @@
 
                 <div class="row" style="display: flex; padding: 2%">
                     <div style="background-color:#0097B2; width: 60%; float:left; padding:2%;border-radius:10px;">
-                        <img src="Assets\Images\sale.png" width="80%"/>
+                        <img src="Assets\Images\sale.png" width="100%"/>
                         <h1 <%--class="text-body"--%> style="color:white; padding-top:5%">Monthly Specials</h1>
                         <h4 style="color:white">Get discounted prices in the month of June!</h4>
                     </div>
@@ -56,10 +56,10 @@
                         </div>
                         <div style="width:30%; float: left; padding-top:5%" >
                             <asp:Label ID="Label1" class="form-label" runat="server" Text="Per Night: "></asp:Label>
-                            <asp:TextBox ID="TextBox1" class="form-control" runat="server" BackColor="#9FF1FF" BorderColor="AntiqueWhite" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px">R </asp:TextBox>
+                            <asp:TextBox ID="TextBox1" class="form-control" runat="server" BackColor="#9FF1FF" BorderColor="AntiqueWhite" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px"></asp:TextBox>
                             <br />
                             <asp:Label ID="Label2" runat="server" class="form-label" Text="Save: "></asp:Label>
-                            <asp:TextBox ID="TextBox2" class="form-control" runat="server" BackColor="#9FF1FF" BorderColor="AntiqueWhite" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px">R </asp:TextBox>
+                            <asp:TextBox ID="TextBox2" class="form-control" runat="server" BackColor="#9FF1FF" BorderColor="AntiqueWhite" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px"></asp:TextBox>
                         </div>
                         <div style="width:30%; float: left; padding:10%" >
                             <asp:Button ID="Button1" runat="server" class="btn btn-success btn-block" Text="Book Now" OnClick="Button1_Click" />
@@ -72,10 +72,10 @@
                         </div>
                         <div style="width:30%; float: left; padding-top:5%" >
                             <asp:Label ID="Label3" runat="server" class="form-label" Text="Per Night: "></asp:Label>
-                            <asp:TextBox ID="TextBox3" class="form-control" runat="server" BackColor="#9FF1FF" BorderColor="AntiqueWhite" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px">R </asp:TextBox>
+                            <asp:TextBox ID="TextBox3" class="form-control" runat="server" BackColor="#9FF1FF" BorderColor="AntiqueWhite" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px" ></asp:TextBox>
                             <br />
                             <asp:Label ID="Label4" runat="server" class="form-label" Text="Save: "></asp:Label>
-                            <asp:TextBox ID="TextBox4" class="form-control" runat="server" BackColor="#9FF1FF" BorderColor="AntiqueWhite" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px">R </asp:TextBox>
+                            <asp:TextBox ID="TextBox4" class="form-control" runat="server" BackColor="#9FF1FF" BorderColor="AntiqueWhite" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px"></asp:TextBox>
                         </div>
                         <div style="width:30%; float: left; padding:10%" >
                             <asp:Button ID="Button2" runat="server" class="btn btn-success btn-block" Text="Book Now" OnClick="Button2_Click" />
@@ -88,10 +88,10 @@
                         </div>
                         <div style="width:30%; float: left; padding-top:5%" >
                             <asp:Label ID="Label5" runat="server" class="form-label" Text="Per Night: "></asp:Label>
-                            <asp:TextBox ID="TextBox5" class="form-control" runat="server" BackColor="#9FF1FF" BorderColor="AntiqueWhite" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px">R </asp:TextBox>
+                            <asp:TextBox ID="TextBox5" class="form-control" runat="server" BackColor="#9FF1FF" BorderColor="AntiqueWhite" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px"></asp:TextBox>
                             <br />
                             <asp:Label ID="Label6" runat="server" class="form-label" Text="Save: "></asp:Label>
-                            <asp:TextBox ID="TextBox6" class="form-control" runat="server" BackColor="#9FF1FF" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px">R </asp:TextBox>
+                            <asp:TextBox ID="TextBox6" class="form-control" runat="server" BackColor="#9FF1FF" BorderStyle="None" Font-Bold="True" Font-Names="Segoe UI" Font-Size="Large" ReadOnly="True" Width="158px"></asp:TextBox>
                         </div>
                         <div style="width:30%; float: left; padding:10%" >
                             <asp:Button ID="Button3" runat="server" class="btn btn-success btn-block" Text="Book Now" OnClick="Button3_Click" />

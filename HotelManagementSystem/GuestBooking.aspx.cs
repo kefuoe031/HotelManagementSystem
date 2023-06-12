@@ -19,6 +19,9 @@ namespace HotelManagementSystem
         
         protected void Page_Load(object sender, EventArgs e)
         {
+            //Set LoggedIn label on GuestMaster page
+            ((Label)Master.FindControl("Label1")).Text = Session["loggedin"].ToString();
+
             userEmail = Session["email"].ToString();
             userPassword = Session["password"].ToString();
             SqlConnection con = new SqlConnection(connectionString);

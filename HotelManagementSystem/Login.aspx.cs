@@ -18,9 +18,7 @@ namespace HotelManagementSystem.Views
         SqlCommand checkUser;
         protected void Page_Load(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(connectionString);
-           
-            con.Close();
+          
         }
 
         protected void Login_Click(object sender, EventArgs e)

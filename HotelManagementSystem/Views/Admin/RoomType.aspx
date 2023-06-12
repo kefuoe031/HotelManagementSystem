@@ -17,12 +17,12 @@
 
                 <div class="mb-3">
                     <label for="RTypeTb" class="form-label">Room Type</label>
-                    <input type="text" class="form-control" id="RTypeTb" runat="server" >
+                    <input type="text" class="form-control" id="RTypeTb" runat="server" required="required" >
                 </div>
                     
                 <div class="mb-3">
                     <label for="RPriceTb" class="form-label">Room Price</label>
-                    <input type="text" class="form-control" id="RPriceTb" runat="server" >
+                    <input type="text" class="form-control" id="RPriceTb" runat="server" required="required" >
                 </div>
 
                  </div>

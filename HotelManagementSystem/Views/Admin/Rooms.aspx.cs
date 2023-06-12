@@ -52,7 +52,7 @@ namespace HotelManagementSystem.Views.Admin
             try
             {
                 string RoomNum = RNumberTb.Value;
-                string RoomType = RoomTypeTb.SelectedItem.ToString();
+                string RoomType = RoomTypeTb.SelectedItem.Text.ToString();
                // string RoomPrice = RPriceTb.Value;
                 string HotelCode = HCodeTb.Value;
                 string Occupancy = OccTb.Value;
@@ -76,8 +76,9 @@ namespace HotelManagementSystem.Views.Admin
         }
         int Key = 0;
         protected void RoomsGV_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            Key = Convert.ToInt32(RoomsGV.SelectedRow.Cells[5].Text);
+        {     
+            //Rooms gridview rows
+            Key = Convert.ToInt32(RoomsGV.SelectedRow.Cells[5].Text);   //RoomID in row 5
             RNumberTb.Value = RoomsGV.SelectedRow.Cells[1].Text;
             RoomTypeTb.SelectedItem.Text = RoomsGV.SelectedRow.Cells[2].Text;
             HCodeTb.Value = RoomsGV.SelectedRow.Cells[3].Text;

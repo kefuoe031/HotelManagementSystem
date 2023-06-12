@@ -42,7 +42,7 @@
 
                 <br />
                 <div class="mb-3">
-                    <label for="OccTb" class="form-label">Occupancy</label>
+                    <label for="OccTb" class="form-label">Occupancy (TRUE or FALSE)</label>
                     <input type="text" class="form-control" id="OccTb" runat="server" />
                 </div>
                     

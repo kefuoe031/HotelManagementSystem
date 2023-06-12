@@ -21,7 +21,11 @@
                 </div>
                 <div class="mb-3">
                     <label for="RoomTypeTb" class="form-label">Room Type</label>
-                    <asp:DropDownList ID="RoomTypeTb" runat="server" class="form-control"></asp:DropDownList>
+                    <asp:DropDownList ID="RoomTypeTb" runat="server" class="form-control">
+                        <asp:ListItem>Double</asp:ListItem>
+                        <asp:ListItem>Queen</asp:ListItem>
+                        <asp:ListItem>King</asp:ListItem>
+                    </asp:DropDownList>
                 <%--</div>
                     <div class="mb-3">
                     <label for="RNumberTb" class="form-label">Room No.</label>

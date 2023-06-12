@@ -14,7 +14,7 @@ namespace HotelManagementSystem.Views.Admin
         {
             Con = new Models.Functions();
             ShowRooms();
-            GetRoomTypes();
+            //GetRoomTypes();
         }
 
         public override void VerifyRenderingInServerForm(Control control)

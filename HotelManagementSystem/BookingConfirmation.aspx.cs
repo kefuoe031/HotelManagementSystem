@@ -62,8 +62,8 @@ namespace HotelManagementSystem
         {
             //record into db
             SqlConnection con = new SqlConnection(connectionString);
-            //try
-            //{
+            try
+            {
                 con.Open();
                 //get the GuestID from db
                 SqlCommand getGuestID = new SqlCommand("select GuestID from GuestTab where Email= @email and Password= @password", con);
@@ -96,16 +96,16 @@ namespace HotelManagementSystem
 
                 //Go to Bill display > reporting functionality
                 Response.Redirect("Invoice.aspx");
-            //}
-            //catch (Exception ex)
-            //{
-            //    //do something
-            //    ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + ex + "');", true);
-            //    con.Close();
-            //}
+            }
+            catch (Exception ex)
+            {
+                //do something
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + ex + "');", true);
+                con.Close();
+            }
 
-            
-           
+
+
 
         }
 

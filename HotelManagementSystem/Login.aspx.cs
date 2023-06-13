@@ -48,7 +48,7 @@ namespace HotelManagementSystem.Views
                     else
                     {
                         //User doesn't exist.
-                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "User doesn't exist. Please check your credentials and try again." + "');", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "User does not exist. Please check your credentials and try again." + "');", true);
                         con.Close();
                     }
                 }
@@ -72,7 +72,7 @@ namespace HotelManagementSystem.Views
                     else
                     {
                         //User doesn't exist.
-                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "User doesn't exist. Please check your credentials and try again." + "');", true);
+                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "User does not exist. Please check your credentials and try again." + "');", true);
                         con.Close();
                     }
                 }

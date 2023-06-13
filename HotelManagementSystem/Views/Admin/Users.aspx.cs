@@ -109,6 +109,15 @@ namespace HotelManagementSystem.Views.Admin
                 Con.setData(Query);
                 ShowUsers();
                 ErrMsg.InnerText = "User Deleted!";
+
+                FirstNameTb.Value = "";
+                LastNameTb.Value = "";
+                DobTb.Value = "";
+                GenTb.Value = "";
+                PhoneTb.Value = "";
+                EmailTb.Value = "";
+                PasswordTb.Value = "";
+
             }
             catch (Exception Ex)
             {

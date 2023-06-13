@@ -26,7 +26,15 @@ namespace HotelManagementSystem
             DataTable dt1 = new DataTable();
             SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
             sda1.Fill(dt1);
-            ((Label)Master.FindControl("Label1")).Text = "Logged-In: " + dt1.Rows[0][0].ToString() + " " + dt1.Rows[0][1].ToString();
+            try
+            {
+                ((Label)Master.FindControl("Label1")).Text = "Logged-In: " + dt1.Rows[0][0].ToString() + " " + dt1.Rows[0][1].ToString();
+            }
+            catch
+            {
+
+            }
+            
             Session["loggedin"] = ((Label)Master.FindControl("Label1")).Text;
 
             //get the guest ID to use to get existing booking records.

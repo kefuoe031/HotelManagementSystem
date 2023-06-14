@@ -86,10 +86,8 @@ namespace HotelManagementSystem
         {
             save.Enabled = false;
             makeReadOnly(true);
-            if (!IsPostBack)
-            {
-                getRecords();
-            }
+            getRecords();
+            
         }
 
         protected void edit_Click(object sender, EventArgs e)
@@ -148,9 +146,10 @@ namespace HotelManagementSystem
 
                 if (noErrors)
                 {
+                    con.Open();
                     if (confirmPass.Text != "" && passwordTB.Text != "" && passwordTB.Text == currentPassword)
                     {
-                        SqlCommand cmd = new SqlCommand("update GuestTab set GuestTitle = @title , FirstName = @fname, LastName = @lname, DOB = @dob, Gender = @gender, PhoneNo = @phone, Email = @email, Password = @pass, PassportNo = @ID, Address = @addr, Postcode = @zip, City = @city, Country = @country where GuestID= @Gid;", con);
+                        SqlCommand cmd = new SqlCommand("update GuestTab set GuestTitle = @title , FirstName = @fname, LastName = @lname, DOB = @dob, Gender = @gender, PhoneNo = @phone, Email = @email, Password = @pass, PassportNo = @ID, Address = @addr, Postcode = @zip, City = @city, Country = @country where GuestID= @Gid", con);
                         cmd.Parameters.AddWithValue("@title", DropDownList1.SelectedValue.ToString());
                         cmd.Parameters.AddWithValue("@fname", firstNameTB.Text);
                         cmd.Parameters.AddWithValue("@lname", lastNametb.Text);
@@ -165,7 +164,6 @@ namespace HotelManagementSystem
                         cmd.Parameters.AddWithValue("@city", cityTB.Text);
                         cmd.Parameters.AddWithValue("@country", countryTB.Text);
                         cmd.Parameters.AddWithValue("@Gid", guestID);
-                        con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
                         getRecords();
@@ -188,8 +186,6 @@ namespace HotelManagementSystem
                         cmd.Parameters.AddWithValue("@city", cityTB.Text);
                         cmd.Parameters.AddWithValue("@country", countryTB.Text);
                         cmd.Parameters.AddWithValue("@Gid", guestID);
-
-                        con.Open();
                         cmd.ExecuteNonQuery();
                         con.Close();
                         getRecords();
@@ -200,6 +196,7 @@ namespace HotelManagementSystem
                     else
                     {
                         ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "The password you have entered does not match your current password." + "');", true);
+                        con.Close();
                     }
                 }
             }

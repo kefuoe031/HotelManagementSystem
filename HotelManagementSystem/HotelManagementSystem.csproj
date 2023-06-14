@@ -186,6 +186,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Models\Functions.cs" />
+    <Compile Include="Models\Reference.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegisterAGuest.aspx.cs">
       <DependentUpon>RegisterAGuest.aspx</DependentUpon>

@@ -16,6 +16,7 @@ namespace HotelManagementSystem.Views
     {
         string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
         SqlCommand checkUser;
+        Models.Reference Ref = new Models.Reference();
         protected void Page_Load(object sender, EventArgs e)
         {
           
@@ -40,8 +41,7 @@ namespace HotelManagementSystem.Views
                         if (UserExist > 0) //admin exists
                         {
                             //User exists
-                            Session["email"] = emailTb.Text;
-                            Session["password"] = password.Text;
+                            Session["aID"] = Ref.getAdminID(emailTb.Text, password.Text);
                             //if admin, redirect to admin dashboard
                             Response.Redirect("~/Views/Admin/UserDashboard.aspx");
                             con.Close();
@@ -63,8 +63,7 @@ namespace HotelManagementSystem.Views
 
                         if (UserExist > 0) //Guest exists
                         {
-                            Session["email"] = emailTb.Text;
-                            Session["password"] = password.Text;
+                            Session["gID"] = Ref.getGuestID(emailTb.Text, password.Text);
                             Response.Redirect("GuestDashboard.aspx");
                             con.Close();
                         }
@@ -92,6 +91,8 @@ namespace HotelManagementSystem.Views
             }
             //if unregistered guest, "click register as a new guest" label on the login page
         }
+
+       
 
     }
 }

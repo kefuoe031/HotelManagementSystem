@@ -11,44 +11,20 @@ namespace HotelManagementSystem
 {
     public partial class GuestDashboard  : System.Web.UI.Page 
     {
-        string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
-        double sale, price;
+        string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";       
         protected void Page_Load(object sender, EventArgs e)
         {
-            string email = Session["email"].ToString();
-            string password = Session["password"].ToString();
             SqlConnection con = new SqlConnection(connectionString);
-
-            //Set LoggedIn label on GuestMaster page
-            SqlCommand cmd1 = new SqlCommand("Select FirstName, LastName from GuestTab where Email= @email and Password= @pass ", con);
-            cmd1.Parameters.AddWithValue("@email", email);
-            cmd1.Parameters.AddWithValue("@pass", password);
-            DataTable dt1 = new DataTable();
-            SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
-            sda1.Fill(dt1);
-            try
-            {
-                ((Label)Master.FindControl("Label1")).Text = "Logged-In: " + dt1.Rows[0][0].ToString() + " " + dt1.Rows[0][1].ToString();
-            }
-            catch
-            {
-
-            }
-            
-            Session["loggedin"] = ((Label)Master.FindControl("Label1")).Text;
-
+           
             //get the guest ID to use to get existing booking records.
+            
+            //SqlCommand cmd = new SqlCommand("Select GuestID, Password from GuestTab where Email = @email;",con);
+            //cmd.Parameters.AddWithValue("@email", email);
+            //DataTable dt = new DataTable();
+            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
+            //sda.Fill(dt);
 
-
-
-            SqlCommand cmd = new SqlCommand("Select GuestID, Password from GuestTab where Email = @email;",con);
-            cmd.Parameters.AddWithValue("@email", email);
-            DataTable dt = new DataTable();
-            SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            sda.Fill(dt);
-
-            Session["GuestID"] = dt.Rows[0][0].ToString();
-            Session["Password"] = dt.Rows[0][1].ToString();
+         
 
             //load prices
 
@@ -112,5 +88,23 @@ namespace HotelManagementSystem
             }
         }
 
+        public void SetLoggedInVal(string emailaddr, string password, SqlConnection connect)
+        {
+            SqlCommand cmd1 = new SqlCommand("Select FirstName, LastName from GuestTab where Email= @email and Password= @pass ", connect);
+            cmd1.Parameters.AddWithValue("@email", emailaddr);
+            cmd1.Parameters.AddWithValue("@pass", password);
+            DataTable dt1 = new DataTable();
+            SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
+            sda1.Fill(dt1);
+            try
+            {
+                ((Label)Master.FindControl("Label1")).Text = "Logged-In: " + dt1.Rows[0][0].ToString() + " " + dt1.Rows[0][1].ToString();
+                Session["loggedin"] = ((Label)Master.FindControl("Label1")).Text;
+            }
+            catch
+            {
+
+            }
+        }
     }
 }

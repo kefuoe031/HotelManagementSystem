@@ -36,8 +36,8 @@
                     <asp:TextBox ID="password" runat="server" class="form-control" TextMode="Password"></asp:TextBox>
                 </div>
                 <div class="mb-3">
-                    <asp:CheckBox ID="AdminCb" runat="server" class="form-check-input text-body" Text="Admin" OnCheckedChanged="AdminCb_CheckedChanged" />
-                    <asp:CheckBox ID="UserCb" runat="server" class="form-check-input text-body" Text="Guest" OnCheckedChanged="UserCb_CheckedChanged" />
+                    <asp:CheckBox ID="AdminCb" runat="server" class="form-check-input text-body" Text="Admin"  />
+                    <asp:CheckBox ID="UserCb" runat="server" class="form-check-input text-body" Text="Guest"  />
                 </div>
                 <div class="mb-3">
                    <a href="RegisterAGuest.aspx" style="text-decoration:none"><asp:Label ID="Label2" runat="server" Text="Register as a new Guest >" EnableTheming="True" ForeColor="#333333"></asp:Label> </a> 

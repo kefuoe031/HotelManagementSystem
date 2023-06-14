@@ -14,9 +14,10 @@ namespace HotelManagementSystem
         public string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
         protected void Page_Load(object sender, EventArgs e)
         {
-            
-            setLoggedInVal((int)Session["gID"]);
-
+            if(!IsPostBack)
+            {
+                setLoggedInVal((int)Session["gID"]);
+            }
         }
         public void setLoggedInVal(int gID)
         {

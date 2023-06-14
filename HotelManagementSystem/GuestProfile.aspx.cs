@@ -30,12 +30,24 @@ namespace HotelManagementSystem
             DropDownList2.CssClass = "form-control";
         }
 
+        //protected string GetCurrentPassword()
+        //{
+        //    guestID = (int)(Session["gID"]);
+        //    SqlConnection con = new SqlConnection(connectionString);
+        //    SqlCommand cmd = new SqlCommand("select Password from GuestTab where GuestID=@id", con);
+        //    cmd.Parameters.AddWithValue("@id",guestID);
+        //    DataTable dt = new DataTable();
+        //    SqlDataAdapter sda = new SqlDataAdapter(cmd);
+        //    sda.Fill(dt);
+        //    string currentPassword = dt.Rows[0][0].ToString();
+
+        //    return currentPassword;
+        //}
+
         protected void getRecords()
         {
             SqlConnection con = new SqlConnection(connectionString);
-            guestID = Convert.ToInt32(Session["GuestID"]);
-            currentPassword = Session["Password"].ToString();
-            makeReadOnly(true);
+            guestID = (int)(Session["gID"]);
             try
             {
                 con.Open();
@@ -72,16 +84,18 @@ namespace HotelManagementSystem
         }
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Set LoggedIn label on GuestMaster page
-            ((Label)Master.FindControl("Label1")).Text = Session["loggedin"].ToString();
-
-            getRecords();
-
+            save.Enabled = false;
+            makeReadOnly(true);
+            if (!IsPostBack)
+            {
+                getRecords();
+            }
         }
 
         protected void edit_Click(object sender, EventArgs e)
         {
             makeReadOnly(false);
+            save.Enabled = true;
         }
 
         protected void save_Click(object sender, EventArgs e)
@@ -89,17 +103,22 @@ namespace HotelManagementSystem
             TextBox[] ctrls = { firstNameTB, lastNametb, dobTB, phone, emailTB, id, addrtb, postCodeTB, cityTB, countryTB };
             string password="";
             SqlConnection con = new SqlConnection(connectionString);
+            Boolean noErrors = true;
 
             //check if all fields are filled
             if (DropDownList1.SelectedValue == "---Select---")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Please select your title." + "');", true);
                 makeReadOnly(false);
+                save.Enabled = true; 
+                noErrors = false;
             }
             else if (DropDownList2.SelectedValue == "---Select---")
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Please select your gender" + "');", true);
                 makeReadOnly(false);
+                save.Enabled = true;
+                noErrors = false;
             }
             else
             {
@@ -111,7 +130,9 @@ namespace HotelManagementSystem
                         //Message to check if all fields are completed
                         ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Please check if all fields are completed." + "');", true);
                         makeReadOnly(false);
+                        save.Enabled = true;
                         ctrls[i].BorderColor = System.Drawing.Color.Red;
+                        noErrors = false;
 
                         return;
                     }
@@ -122,62 +143,65 @@ namespace HotelManagementSystem
 
             try
             {               
-                    password = confirmPass.Text;
-                    //check if the email is already registered
-                    
-                if (confirmPass.Text != "" && passwordTB.Text !="" && passwordTB.Text==currentPassword)
-                {
-                    SqlCommand cmd = new SqlCommand("update GuestTab set GuestTitle = @title , FirstName = @fname, LastName = @lname, DOB = @dob, Gender = @gender, PhoneNo = @phone, Email = @email, Password = @pass, PassportNo = @ID, Address = @addr, Postcode = @zip, City = @city, Country = @country where GuestID= @Gid;", con);
-                    cmd.Parameters.AddWithValue("@title", DropDownList1.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@fname", firstNameTB.Text);
-                    cmd.Parameters.AddWithValue("@lname", lastNametb.Text);
-                    cmd.Parameters.AddWithValue("@dob", dobTB.Text);
-                    cmd.Parameters.AddWithValue("@gender", DropDownList2.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@phone", phone.Text);
-                    cmd.Parameters.AddWithValue("@email", emailTB.Text);
-                    cmd.Parameters.AddWithValue("@pass", password.ToString());
-                    cmd.Parameters.AddWithValue("@ID", id.Text);
-                    cmd.Parameters.AddWithValue("@addr", addrtb.Text);
-                    cmd.Parameters.AddWithValue("@zip", postCodeTB.Text);
-                    cmd.Parameters.AddWithValue("@city", cityTB.Text);
-                    cmd.Parameters.AddWithValue("@country", countryTB.Text);
-                    cmd.Parameters.AddWithValue("@Gid", guestID);
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    getRecords();
-                    ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Details updated successfully." + "');", true);
-                    
-                }
-                else if(confirmPass.Text=="")
-                {
-                    SqlCommand cmd = new SqlCommand("update GuestTab set GuestTitle = @title , FirstName = @fname, LastName = @lname, DOB = @dob, Gender = @gender, PhoneNo = @phone, Email = @email, PassportNo = @ID, Address = @addr, Postcode = @zip, City = @city, Country = @country where GuestID= @Gid;", con);
-                    cmd.Parameters.AddWithValue("@title", DropDownList1.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@fname", firstNameTB.Text.ToString());
-                    cmd.Parameters.AddWithValue("@lname", lastNametb.Text);
-                    cmd.Parameters.AddWithValue("@dob", dobTB.Text);
-                    cmd.Parameters.AddWithValue("@gender", DropDownList2.SelectedValue.ToString());
-                    cmd.Parameters.AddWithValue("@phone", phone.Text);
-                    cmd.Parameters.AddWithValue("@email", emailTB.Text);
-                    cmd.Parameters.AddWithValue("@ID", id.Text);
-                    cmd.Parameters.AddWithValue("@addr", addrtb.Text);
-                    cmd.Parameters.AddWithValue("@zip", postCodeTB.Text);
-                    cmd.Parameters.AddWithValue("@city", cityTB.Text);
-                    cmd.Parameters.AddWithValue("@country", countryTB.Text);
-                    cmd.Parameters.AddWithValue("@Gid", guestID);
+                password = confirmPass.Text;
+                //check if the email is already registered
 
-                    con.Open();
-                    cmd.ExecuteNonQuery();
-                    con.Close();
-                    getRecords();
-                    ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Details updated successfully." + "');", true);
-                    
-                }
-                else
+                if (noErrors)
                 {
-                    ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "The password you have entered does not match your current password." + "');", true);
-                }
+                    if (confirmPass.Text != "" && passwordTB.Text != "" && passwordTB.Text == currentPassword)
+                    {
+                        SqlCommand cmd = new SqlCommand("update GuestTab set GuestTitle = @title , FirstName = @fname, LastName = @lname, DOB = @dob, Gender = @gender, PhoneNo = @phone, Email = @email, Password = @pass, PassportNo = @ID, Address = @addr, Postcode = @zip, City = @city, Country = @country where GuestID= @Gid;", con);
+                        cmd.Parameters.AddWithValue("@title", DropDownList1.SelectedValue.ToString());
+                        cmd.Parameters.AddWithValue("@fname", firstNameTB.Text);
+                        cmd.Parameters.AddWithValue("@lname", lastNametb.Text);
+                        cmd.Parameters.AddWithValue("@dob", dobTB.Text);
+                        cmd.Parameters.AddWithValue("@gender", DropDownList2.SelectedValue.ToString());
+                        cmd.Parameters.AddWithValue("@phone", phone.Text);
+                        cmd.Parameters.AddWithValue("@email", emailTB.Text);
+                        cmd.Parameters.AddWithValue("@pass", password.ToString());
+                        cmd.Parameters.AddWithValue("@ID", id.Text);
+                        cmd.Parameters.AddWithValue("@addr", addrtb.Text);
+                        cmd.Parameters.AddWithValue("@zip", postCodeTB.Text);
+                        cmd.Parameters.AddWithValue("@city", cityTB.Text);
+                        cmd.Parameters.AddWithValue("@country", countryTB.Text);
+                        cmd.Parameters.AddWithValue("@Gid", guestID);
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        getRecords();
+                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Details updated successfully." + "');", true);
+                        save.Enabled = false;
+                    }
+                    else if (confirmPass.Text == "")
+                    {
+                        SqlCommand cmd = new SqlCommand("update GuestTab set GuestTitle = @title , FirstName = @fname, LastName = @lname, DOB = @dob, Gender = @gender, PhoneNo = @phone, Email = @email, PassportNo = @ID, Address = @addr, Postcode = @zip, City = @city, Country = @country where GuestID= @Gid;", con);
+                        cmd.Parameters.AddWithValue("@title", DropDownList1.SelectedValue.ToString());
+                        cmd.Parameters.AddWithValue("@fname", firstNameTB.Text.ToString());
+                        cmd.Parameters.AddWithValue("@lname", lastNametb.Text);
+                        cmd.Parameters.AddWithValue("@dob", dobTB.Text);
+                        cmd.Parameters.AddWithValue("@gender", DropDownList2.SelectedValue.ToString());
+                        cmd.Parameters.AddWithValue("@phone", phone.Text);
+                        cmd.Parameters.AddWithValue("@email", emailTB.Text);
+                        cmd.Parameters.AddWithValue("@ID", id.Text);
+                        cmd.Parameters.AddWithValue("@addr", addrtb.Text);
+                        cmd.Parameters.AddWithValue("@zip", postCodeTB.Text);
+                        cmd.Parameters.AddWithValue("@city", cityTB.Text);
+                        cmd.Parameters.AddWithValue("@country", countryTB.Text);
+                        cmd.Parameters.AddWithValue("@Gid", guestID);
 
+                        con.Open();
+                        cmd.ExecuteNonQuery();
+                        con.Close();
+                        getRecords();
+                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "Details updated successfully." + "');", true);
+                        save.Enabled = false;
+
+                    }
+                    else
+                    {
+                        ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "The password you have entered does not match your current password." + "');", true);
+                    }
+                }
             }
             catch
             {

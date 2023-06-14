@@ -20,7 +20,7 @@
             <div class="row" style="display: flex; justify-content: center">
 
                 <div class="col-4" style="padding: 3%">
-                    <h1 class="text-body text-center">Make a Booking</h1>
+                    <h1 class="text-body text-center">New Guest Registration</h1>
                 </div>
 
                 <div class="row" style="width: 90%; background-color: rgba(255,255,255,0.5); display: flex; justify-content: center">

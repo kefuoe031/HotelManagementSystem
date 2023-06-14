@@ -115,7 +115,7 @@
                         </div>
 
                         <div class="d-grid">
-                            <asp:Button ID="edit" runat="server" class="btn btn-success btn-block" Text="Edit Profile" OnClick="edit_Click"  />
+                            <asp:Button ID="edit" runat="server" class="btn btn-success btn-block" Text="Click to edit Profile" OnClick="edit_Click"  />
                         </div>
                         <div class="col-4" style="padding-bottom: 2%"></div>
                         <div class="d-grid">

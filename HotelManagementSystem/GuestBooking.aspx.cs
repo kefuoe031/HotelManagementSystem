@@ -19,17 +19,13 @@ namespace HotelManagementSystem
         
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Set LoggedIn label on GuestMaster page
-            ((Label)Master.FindControl("Label1")).Text = Session["loggedin"].ToString();
-
-            userEmail = Session["email"].ToString();
-            userPassword = Session["password"].ToString();
+            int gID = (int)Session["gID"];
             SqlConnection con = new SqlConnection(connectionString);
             try
             {
                 con.Open();
-                SqlCommand cmd = new SqlCommand("select FirstName, LastName, PassportNo from GuestTab where Email=@email", con);
-                cmd.Parameters.AddWithValue("@email", userEmail);
+                SqlCommand cmd = new SqlCommand("select FirstName, LastName, PassportNo from GuestTab where GuestID=@id", con);
+                cmd.Parameters.AddWithValue("@id", gID);
                 SqlDataAdapter sda = new SqlDataAdapter(cmd);
                 DataTable dt = new DataTable();
                 sda.Fill(dt);
@@ -113,7 +109,6 @@ namespace HotelManagementSystem
 
             try
             {
-                //capture cookies
                 Session["checkIn"] = (DateTime)checkInCalendar.SelectedDate.Date;
                 Session["checkOut"] = (DateTime)checkOutCalendar.SelectedDate.Date;
                 Session["adults"] = adultsDDL.SelectedItem;

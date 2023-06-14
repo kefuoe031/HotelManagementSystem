@@ -20,9 +20,7 @@ namespace HotelManagementSystem
         string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Set LoggedIn label on GuestMaster page
-            ((Label)Master.FindControl("Label1")).Text = Session["loggedin"].ToString();
-
+            
         }
 
         protected void goToHome_Click(object sender, EventArgs e)

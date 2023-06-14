@@ -14,15 +14,10 @@ namespace HotelManagementSystem
     public partial class BookingConfirmation : System.Web.UI.Page
     {
         string connectionString = @"Data Source=146.230.177.46;Initial Catalog=Hons10;Persist Security Info=True;User ID=Hons10;Password=23jas";
-        protected string userEmail;
-        protected string userPassword;
         protected int BookingID;
        
         protected void Page_Load(object sender, EventArgs e)
         {
-            //Set LoggedIn label on GuestMaster page
-            ((Label)Master.FindControl("Label1")).Text = Session["loggedin"].ToString();
-
             try
             {
                 //calculating the total price based on room price and total number of days booked to stay
@@ -30,14 +25,11 @@ namespace HotelManagementSystem
                 DateTime checkOut = (DateTime)Session["checkOut"];
 
                 int totalDays = (checkOut - checkIn).Days;
-            int length = Session["roomPrice"].ToString().Length;
-            string price = Session["roomPrice"].ToString().Substring(1, length-3);
-            double cost = double.Parse(price); 
-            double total = totalDays * cost;
+                int length = Session["roomPrice"].ToString().Length;
+                string price = Session["roomPrice"].ToString().Substring(1, length-3);
+                double cost = double.Parse(price); 
+                double total = totalDays * cost;
 
-
-                userEmail = Session["email"].ToString();
-                userPassword = Session["password"].ToString();
                 checkInDate.Text = Session["checkIn"].ToString();
                 checkOutDate.Text = Session["checkOut"].ToString();
                 numAdults.Text = Session["adults"].ToString();
@@ -65,11 +57,7 @@ namespace HotelManagementSystem
             try
             {
                 con.Open();
-                //get the GuestID from db
-                SqlCommand getGuestID = new SqlCommand("select GuestID from GuestTab where Email= @email and Password= @password", con);
-                getGuestID.Parameters.AddWithValue("@email", userEmail);
-                getGuestID.Parameters.AddWithValue("@password", userPassword);
-                int guestID = (int)getGuestID.ExecuteScalar();
+                int guestID = (int)Session["gID"];
 
                 //insert record into db
                 SqlCommand addRecord = new SqlCommand("insert into BookingTab (GuestID, CheckInDate, CheckOutDate, FirstName, LastName, NumAdults, NumChildren, RoomType, SpecialReq, Allergies, BookingDate, Amount) values(@GuestID, @CheckInDate, @CheckOutDate, @FirstName, @LastName, @NumAdults, @NumChildren, @RoomType, @SpecialReq, @Allergies, @BookingDateTime, @Amount );", con);
@@ -96,18 +84,18 @@ namespace HotelManagementSystem
 
                 //Go to Bill display > reporting functionality
                 Response.Redirect("Invoice.aspx");
-            }
+        }
             catch (Exception ex)
             {
                 //do something
-                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + ex + "');", true);
+                ClientScript.RegisterStartupScript(this.GetType(), "messagebox", "alert(' " + "ERROR" + "');", true);
                 con.Close();
             }
 
 
 
 
-        }
+}
 
         
 

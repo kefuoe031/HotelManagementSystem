@@ -15,26 +15,16 @@ namespace HotelManagementSystem
         protected void Page_Load(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(connectionString);
-           
+
             //get the guest ID to use to get existing booking records.
+            int gID = (int)Session["gID"];
             
-            //SqlCommand cmd = new SqlCommand("Select GuestID, Password from GuestTab where Email = @email;",con);
-            //cmd.Parameters.AddWithValue("@email", email);
-            //DataTable dt = new DataTable();
-            //SqlDataAdapter sda = new SqlDataAdapter(cmd);
-            //sda.Fill(dt);
-
-         
-
-            //load prices
-
-
-
             if (!IsPostBack)
             {
                 GridView1.DataBind();
             }
 
+            //load prices
             SqlConnection con2 = new SqlConnection(connectionString);
             SqlCommand cmd2 = new SqlCommand("Select * from RoomTypeTab", con2);
             SqlDataAdapter sda2 = new SqlDataAdapter(cmd2);
@@ -88,23 +78,5 @@ namespace HotelManagementSystem
             }
         }
 
-        public void SetLoggedInVal(string emailaddr, string password, SqlConnection connect)
-        {
-            SqlCommand cmd1 = new SqlCommand("Select FirstName, LastName from GuestTab where Email= @email and Password= @pass ", connect);
-            cmd1.Parameters.AddWithValue("@email", emailaddr);
-            cmd1.Parameters.AddWithValue("@pass", password);
-            DataTable dt1 = new DataTable();
-            SqlDataAdapter sda1 = new SqlDataAdapter(cmd1);
-            sda1.Fill(dt1);
-            try
-            {
-                ((Label)Master.FindControl("Label1")).Text = "Logged-In: " + dt1.Rows[0][0].ToString() + " " + dt1.Rows[0][1].ToString();
-                Session["loggedin"] = ((Label)Master.FindControl("Label1")).Text;
-            }
-            catch
-            {
-
-            }
-        }
     }
 }

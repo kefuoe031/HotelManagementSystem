@@ -42,7 +42,7 @@
                         </asp:GridView>
                         <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:Hons10ConnectionString %>" SelectCommand="SELECT [BookingID], [CheckInDate], [CheckOutDate], [RoomType] FROM [BookingTab] WHERE ([GuestID] = @GuestID)">
                             <SelectParameters>
-                                <asp:SessionParameter Name="GuestID" SessionField="GuestID" Type="Int32" />
+                                <asp:SessionParameter Name="GuestID" SessionField="gID" Type="Int32" />
                             </SelectParameters>
                         </asp:SqlDataSource>
                         <div style="padding:2%"></div>
